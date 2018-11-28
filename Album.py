@@ -5,7 +5,7 @@ import Band
 
 class Album:
     band: Band
-    songs: List[Song]
+    #songs: List[Song]
 
     def __init__(self, title, band, songs_number):
         self.band = band
