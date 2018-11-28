@@ -165,3 +165,27 @@ class MusiclyDB:
             print("was already stored in table ")
 
         self.con.commit()
+
+    def get_song_info(self, song_name):
+
+        cursor = self.con.cursor()
+        query = ''' SELECT * FROM Song WHERE songName = ? '''
+        cursor.execute(query, (song_name,))
+        all_rows = cursor.fetchall()
+        self.con.commit()
+        return all_rows
+
+    def get_all_songs(self):
+
+        cursor = self.con.cursor()
+        query = ''' SELECT * FROM Song '''
+        cursor.execute(query)
+        print(cursor.fetchall())
+        self.con.commit()
+
+    def remove_song(self, song_name):
+
+        cursor = self.con.cursor()
+        query = ''' DELETE FROM Song WHERE songName = ? '''
+        cursor.execute(query, (song_name,))
+        self.con.commit()
