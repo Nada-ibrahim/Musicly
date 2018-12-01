@@ -13,6 +13,6 @@ class AlbumRequester:
         print()
         # TODO: delete album from database
 
-    def get_album_information(self, playlist_name, ordered_by, ascending):
+    def get_album_information(self, album_title, ordered_by, ascending):
         print()
         # TODO: get album information with their songs name, duration and URL ordered by an attribute
