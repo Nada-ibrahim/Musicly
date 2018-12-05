@@ -3,9 +3,8 @@ from typing import List
 import Song
 
 class Playlist:
-    songs: List[Song]
 
-    def __init__(self, name, description, tracks_no):
+    def __init__(self, name, description, tracks_no = 0):
         self.name = name
         self.description = description
         self.tracks_no = tracks_no
