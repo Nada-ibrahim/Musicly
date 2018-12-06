@@ -361,7 +361,7 @@ class MusiclyDB:
                                 album_number_of_songs]
         return album_title_id_songs  # list of lists, not list of tuples
 
-    def get_album_information(self, album_id, ordered_by, ascending):
+    def get_album_information(self, album_id):
         cursor = self.con.cursor()
         query = '''SELECT albumTitle, bandName FROM Album WHERE albumID = ?'''
         cursor.execute(query, (album_id,))
@@ -372,23 +372,20 @@ class MusiclyDB:
 
         query = '''SELECT songURL, songName, songLength 
                    FROM Song 
-                   WHERE albumID = ?
-                   ORDER BY ''' + ordered_by + ''' ''' + ascending
+                   WHERE albumID = ?'''
         cursor.execute(query, (album_id))
         self.con.commit()
         songs_list = cursor.fetchall()
-        new_songs_list = []
 
-        album.songs_number = len(songs_list)
         for item in songs_list:
             song = Song(url=item[0], name=item[1], length=item[2])
-            new_songs_list.append(song)
-        return album, songs_list
+            album.add_song(song)
+        return album
 
-    def delete_album(self, album_title):
+    def delete_album(self, album_id):
         cursor = self.con.cursor()
-        query = ''' DELETE FROM Album WHERE albumTitle = ? '''
-        cursor.execute(query, (album_title,))
+        query = ''' DELETE FROM Album WHERE albumID = ? '''
+        cursor.execute(query, (album_id,))
         self.con.commit()
 
     # Artist Requester

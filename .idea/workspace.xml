@@ -2,26 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="536c9bd1-aa24-4b77-b211-76db05491c40" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/ui/band_page.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ui/page.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ui/playlist_page.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ui/songs_page.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ui/welcome_page.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Musicly.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Musicly.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui/album_page.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui/library_page.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Artist.py" beforeDir="false" afterPath="$PROJECT_DIR$/Artist.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Song.py" beforeDir="false" afterPath="$PROJECT_DIR$/Song.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database_requester/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/ui/artist_page.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database_requester/album_requester.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database_requester/artist_requester.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database_requester/playlist_requester.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database_requester/song_requester.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/musicly.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Album.py" beforeDir="false" afterPath="$PROJECT_DIR$/Album.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sqliteDB/musicly_db.py" beforeDir="false" afterPath="$PROJECT_DIR$/sqliteDB/musicly_db.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/songs_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/ui/songs_page.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/welcome_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/ui/welcome_page.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -59,6 +46,20 @@
         <item name="musicly.db" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="main: schema" type="90513b60:SqliteImplModel$Schema" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="musicly.db" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="main: schema" type="90513b60:SqliteImplModel$Schema" />
+        <item name="Album: table" type="ffe0bd85:SqliteImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="musicly.db" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="main: schema" type="90513b60:SqliteImplModel$Schema" />
+        <item name="Song: table" type="ffe0bd85:SqliteImplModel$Table" />
       </path>
     </expand>
     <select />
@@ -104,11 +105,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="musicly_db.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="musicly_db.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sqliteDB/musicly_db.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="418" column="34" selection-start-line="418" selection-start-column="30" selection-end-line="418" selection-end-column="34" />
+            <state relative-caret-position="334">
+              <caret line="316" lean-forward="true" selection-start-line="316" selection-end-line="316" />
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
               </folding>
@@ -116,52 +117,47 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Artist.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Artist.py">
+      <file leaf-file-name="album_page.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ui/album_page.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
-              <caret line="6" column="44" selection-start-line="6" selection-start-column="44" selection-end-line="6" selection-end-column="44" />
+            <state relative-caret-position="279">
+              <caret line="16" column="35" selection-start-line="16" selection-start-column="35" selection-end-line="16" selection-end-column="35" />
+              <folding>
+                <element signature="e#1#25#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="console.sql" pinned="false" current-in-tab="false">
-        <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/3c58cb32-edcc-43c2-8653-bbb9278b4e7e/console.sql">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file leaf-file-name="artist" pinned="false" current-in-tab="false">
-        <entry file="das://3c58cb32-edcc-43c2-8653-bbb9278b4e7e/schema/main/table/artist">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true" />
+      <file leaf-file-name="library_page.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ui/library_page.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1176">
+              <caret line="7" column="27" lean-forward="true" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
+              <folding>
+                <element signature="e#1#25#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="bandcontainsartists" pinned="false" current-in-tab="false">
-        <entry file="das://3c58cb32-edcc-43c2-8653-bbb9278b4e7e/schema/main/table/bandcontainsartists">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true" />
+      <file leaf-file-name="welcome_page.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ui/welcome_page.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="179">
+              <caret line="22" column="25" lean-forward="true" selection-start-line="22" selection-start-column="25" selection-end-line="22" selection-end-column="25" />
+              <folding>
+                <element signature="e#0#35#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="song" pinned="false" current-in-tab="false">
-        <entry file="das://3c58cb32-edcc-43c2-8653-bbb9278b4e7e/schema/main/table/song">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="band" pinned="false" current-in-tab="false">
-        <entry file="das://3c58cb32-edcc-43c2-8653-bbb9278b4e7e/schema/main/table/band">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true" />
+      <file leaf-file-name="songs_page.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ui/songs_page.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="154">
+              <caret line="7" column="34" selection-start-line="7" selection-start-column="34" selection-end-line="7" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -169,8 +165,8 @@
       <file leaf-file-name="artist_page.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ui/artist_page.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="122">
-              <caret line="15" selection-start-line="15" selection-end-line="15" />
+            <state relative-caret-position="223">
+              <caret line="48" column="37" lean-forward="true" selection-start-line="45" selection-start-column="8" selection-end-line="48" selection-end-column="37" />
               <folding>
                 <element signature="e#0#24#0" expanded="true" />
               </folding>
@@ -181,11 +177,32 @@
       <file leaf-file-name="band_page.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ui/band_page.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="44">
-              <caret line="11" selection-start-line="11" selection-end-line="11" />
+            <state relative-caret-position="393">
+              <caret line="41" column="36" lean-forward="true" selection-start-line="38" selection-start-column="8" selection-end-line="41" selection-end-column="36" />
               <folding>
                 <element signature="e#1#25#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="playlist_page.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ui/playlist_page.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="258">
+              <caret line="112" column="34" lean-forward="true" selection-start-line="109" selection-start-column="8" selection-end-line="112" selection-end-column="34" />
+              <folding>
+                <element signature="e#0#41#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Album.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Album.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="154">
+              <caret line="9" column="34" selection-start-line="9" selection-start-column="34" selection-end-line="9" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -237,7 +254,6 @@
         <option value="$PROJECT_DIR$/DatabaseRequester/AlbumRequester.py" />
         <option value="$PROJECT_DIR$/DatabaseRequester/PlaylistRequester.py" />
         <option value="$PROJECT_DIR$/DatabaseRequester/ArtistRequester.py" />
-        <option value="$PROJECT_DIR$/Album.py" />
         <option value="$PROJECT_DIR$/Playlist.py" />
         <option value="$PROJECT_DIR$/DatabaseRequester/song_requester.py" />
         <option value="$PROJECT_DIR$/DatabaseRequester/playlist_requester.py" />
@@ -251,12 +267,15 @@
         <option value="$PROJECT_DIR$/Song.py" />
         <option value="$PROJECT_DIR$/ui/page.py" />
         <option value="$PROJECT_DIR$/ui/playlist_page.py" />
-        <option value="$PROJECT_DIR$/ui/songs_page.py" />
-        <option value="$PROJECT_DIR$/ui/welcome_page.py" />
         <option value="$PROJECT_DIR$/Artist.py" />
         <option value="$PROJECT_DIR$/ui/artist_page.py" />
         <option value="$PROJECT_DIR$/ui/band_page.py" />
+        <option value="$PROJECT_DIR$/Album.py" />
+        <option value="$PROJECT_DIR$/ui/songs_page.py" />
         <option value="$PROJECT_DIR$/sqliteDB/musicly_db.py" />
+        <option value="$PROJECT_DIR$/ui/welcome_page.py" />
+        <option value="$PROJECT_DIR$/ui/album_page.py" />
+        <option value="$PROJECT_DIR$/ui/library_page.py" />
       </list>
     </option>
   </component>
@@ -523,7 +542,14 @@
       <option name="project" value="LOCAL" />
       <updated>1543991532223</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Added ui of playists, artists&#10;Minor errors exist">
+      <created>1544054604955</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1544054604955</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TodoView">
@@ -544,17 +570,16 @@
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Python Console" order="7" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.46088436" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.15816326" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32993197" />
-      <window_info anchor="bottom" id="Database Console" weight="0.32993197" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17564403" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17564403" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" visible="true" weight="0.20296644" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3282313" />
       <window_info anchor="right" id="SciView" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.39965987" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39965987" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="4" weight="0.3295302" />
@@ -574,6 +599,7 @@
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="right" id="SciView" order="3" />
+      <window_info anchor="bottom" id="Database Console" weight="0.32993197" />
       <window_info anchor="bottom" id="Terminal" order="11" />
       <window_info id="Favorites" order="2" side_tool="true" />
     </layout>
@@ -586,7 +612,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="..." />
-    <option name="LAST_COMMIT_MESSAGE" value="..." />
+    <MESSAGE value="Added ui of playists, artists&#10;Minor errors exist" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added ui of playists, artists&#10;Minor errors exist" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -615,20 +642,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Artist.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Band.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Playlist.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="66">
@@ -726,13 +739,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Album.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="10" column="24" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="88">
@@ -760,13 +766,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ui/songs_page.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="23" column="27" selection-start-line="23" selection-start-column="27" selection-end-line="23" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Band.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="44">
@@ -776,26 +775,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/erd-diagram .png">
       <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ui/playlist_page.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="7" column="8" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ui/welcome_page.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="157">
-          <caret line="20" column="23" selection-start-line="20" selection-start-column="23" selection-end-line="20" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#37#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/eed8d62a-377b-4a71-a6eb-15c90c8d8659/console.sql">
       <provider selected="true" editor-type-id="text-editor" />
@@ -824,24 +803,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/3c58cb32-edcc-43c2-8653-bbb9278b4e7e/console.sql">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="das://3c58cb32-edcc-43c2-8653-bbb9278b4e7e/schema/main/table/band">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://3c58cb32-edcc-43c2-8653-bbb9278b4e7e/schema/main/table/artist">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://3c58cb32-edcc-43c2-8653-bbb9278b4e7e/schema/main/table/bandcontainsartists">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
@@ -855,13 +817,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Artist.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="6" column="44" selection-start-line="6" selection-start-column="44" selection-end-line="6" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ui/page.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
@@ -872,32 +827,110 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ui/artist_page.py">
+    <entry file="das://3c58cb32-edcc-43c2-8653-bbb9278b4e7e/schema/main/table/bandcontainsartists">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://3c58cb32-edcc-43c2-8653-bbb9278b4e7e/schema/main/table/artist">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/3c58cb32-edcc-43c2-8653-bbb9278b4e7e/console.sql">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Artist.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="122">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
-          <folding>
-            <element signature="e#0#24#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="154">
+          <caret line="7" column="24" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Album.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="9" column="34" selection-start-line="9" selection-start-column="34" selection-end-line="9" selection-end-column="34" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ui/band_page.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
+        <state relative-caret-position="393">
+          <caret line="41" column="36" lean-forward="true" selection-start-line="38" selection-start-column="8" selection-end-line="41" selection-end-column="36" />
           <folding>
             <element signature="e#1#25#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ui/playlist_page.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="258">
+          <caret line="112" column="34" lean-forward="true" selection-start-line="109" selection-start-column="8" selection-end-line="112" selection-end-column="34" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ui/artist_page.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="48" column="37" lean-forward="true" selection-start-line="45" selection-start-column="8" selection-end-line="48" selection-end-column="37" />
+          <folding>
+            <element signature="e#0#24#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ui/welcome_page.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="22" column="25" lean-forward="true" selection-start-line="22" selection-start-column="25" selection-end-line="22" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/sqliteDB/musicly_db.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="418" column="34" selection-start-line="418" selection-start-column="30" selection-end-line="418" selection-end-column="34" />
+        <state relative-caret-position="334">
+          <caret line="316" lean-forward="true" selection-start-line="316" selection-end-line="316" />
           <folding>
             <element signature="e#0#14#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ui/songs_page.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="7" column="34" selection-start-line="7" selection-start-column="34" selection-end-line="7" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ui/album_page.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="279">
+          <caret line="16" column="35" selection-start-line="16" selection-start-column="35" selection-end-line="16" selection-end-column="35" />
+          <folding>
+            <element signature="e#1#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ui/library_page.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1176">
+          <caret line="7" column="27" lean-forward="true" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
+          <folding>
+            <element signature="e#1#25#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -1,3 +1,4 @@
+from ui.album_page import AlbumPage
 from ui.artist_page import ArtistPage
 from ui.playlist_page import PlaylistPage
 from ui.page import Page
@@ -21,6 +22,7 @@ class WelcomePage(Page):
                     ArtistPage(self._db)
                     break
                 elif n == 3:
+                    AlbumPage(self._db)
                     break
                 elif n == 4:
                     break

@@ -2,10 +2,12 @@
 from ui.page import Page
 
 class SongsPage(Page):
-    def __init__(self, db, songs):
+    def __init__(self, db, songs, text = None):
         super().__init__(db)
         while True:
             self.print_title("Songs")
+            if not text == None:
+                print(text)
             headers = ["Song Name", "Duration", "Song URL"]
             self.print_attrs(headers, songs)
 
