@@ -57,8 +57,7 @@ class PlaylistPage(Page):
                 if n == 1:
                     # TODO: Play song
                     song_name = input("Enter the song name: ")
-                    url = self._db.get_url_song_by_name(song_name)
-                    print(url)
+                    url = self.play_song(song_name)
                     play.play(url)
                     break
                 elif n == 2:
@@ -125,6 +124,8 @@ class PlaylistPage(Page):
         url = input("Enter URL: ")
         self._db.remove_song_from_playlist(playlist_id, url)
 
-    def play_song(self, url):
+    def play_song(self, song_name):
         # TODO: complete function
-        songs_list = self._db.get_song_by_url(url)
+        # songs_list = self._db.get_song_by_url(url)
+        url = self._db.get_url_song_by_name(song_name)
+        return url
