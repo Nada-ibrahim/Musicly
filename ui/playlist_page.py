@@ -1,9 +1,8 @@
-from sqliteDB.musicly_db import MusiclyDB
 from ui.page import Page
+from play_song import play
 
 
 class PlaylistPage(Page):
-
 
     def __init__(self, db):
         super().__init__(db)
@@ -46,30 +45,39 @@ class PlaylistPage(Page):
             self.print_attrs(headers, playlist.songs)
 
             print("1- Play Song")
-            print("2- Play Playlist")
-            print("3- Sort by")
-            print("4- Add Song")
-            print("5- Remove Song")
-            print("6- Back")
+            print("2- Stop Song")
+            print("3- Play Playlist")
+            print("4- Sort by")
+            print("5- Add Song")
+            print("6- Remove Song")
+            print("7- Back")
 
             while True:
                 n = int(input("Enter Your Choice: "))
                 if n == 1:
                     # TODO: Play song
+                    song_name = input("Enter the song name: ")
+                    url = self._db.get_url_song_by_name(song_name)
+                    print(url)
+                    play.play(url)
                     break
                 elif n == 2:
-                    # TODO: Play playlist
+                    # TODO: close song
+                    play.close()
                     break
                 elif n == 3:
+                    # TODO: Play playlist
+                    break
+                elif n == 4:
                     self.order_songs_by(id)
                     return
-                elif n == 4:
+                elif n == 5:
                     self.add_song(id)
                     break
-                elif n == 5:
+                elif n == 6:
                     self.remove_song(id)
                     break
-                elif n == 6:
+                elif n == 7:
                     return
                 else:
                     print("INVALID NUMBER")
