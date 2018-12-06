@@ -343,17 +343,20 @@ class MusiclyDB:
 
     def get_song_by_url(self, URL):
         cursor = self.con.cursor()
-        query = ''' SELECT songURL, songName, songLength FROM Song WHERE songURL = ? '''
+        query = ''' SELECT * FROM Song WHERE songURL = ? '''
         cursor.execute(query, (URL,))
         songs_list = cursor.fetchall()
         self.con.commit()
 
         new_songs_list = []
         for item in songs_list:
-            song = Song(url=item[0], name=item[1], length=item[2])
+            song = Song(url=item[0], album=item[1],
+                        band=item[2], featured_artist=item[3],
+                        name=item[4], release_date=item[5],
+                        lyrics=item[6], length=item[7])
             new_songs_list.append(song)
 
-        return new_songs_list
+        return new_songs_list[0]
 
     def get_genre_songs(self, genre_name):
         cursor = self.con.cursor()
