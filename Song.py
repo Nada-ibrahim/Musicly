@@ -11,12 +11,13 @@ class Song:
 
     def __init__(self, url="", album=None, band=None, name="",
                  release_date=None, lyrics="", length="", featured_artist=None, genres=None):
-        self.url = url
+        self.name = name
         self.length = length
+        self.url = url
+        self.release_date = release_date
+        self.band = band
+        self.album = album
         self.lyrics = lyrics
         self.genres = genres
-        self.release_date = release_date
-        self.album = album
         self.featured_artist = featured_artist
-        self.band = band
-        self.name = name
+

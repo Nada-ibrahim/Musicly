@@ -1,5 +1,7 @@
 import sqlite3
 from operator import itemgetter
+from pathlib import Path
+
 from Song import Song
 from Playlist import Playlist
 from Artist import Artist
@@ -10,9 +12,12 @@ import datetime
 class MusiclyDB:
 
     def __init__(self):
+        path = Path("musicly.db")
+        if not path.exists():
+            self.con = self.create_connection()
+            self.create_tables()
+            self.fill_db()
         self.con = self.create_connection()
-        self.create_tables()
-        self.fill_db()
 
     def create_connection(self):
         self.con = sqlite3.connect("musicly.db")
@@ -53,7 +58,7 @@ class MusiclyDB:
                               songName    VARCHAR(100) UNIQUE NOT NULL,
                               songRelease DATE         ,
                               songLyrics  VARCHAR(200) ,
-                              songLength  INTEGER      
+                              songLength  VARCHAR(100)      
                             );
                        ''')
 
@@ -81,11 +86,11 @@ class MusiclyDB:
 
     def fill_db(self):
         self.add_band("Cairokee")
-        # self.add_artist(Artist("Amir", "3-9-1234"))
+        self.add_artist(Artist("Amir", "3-9-1234"))
         self.add_artist(Artist("Amr Diab", "3-9-1234"))
         self.add_artist_to_band("Cairokee", "Amir")
 
-        self.add_playlist("myPlayList", "my favourite cairoke songs", 1)
+        self.add_playlist("myPlayList", "my favourite cairoke songs")
 
         self.add_album("Cairokee", "No2ta beda")
 
@@ -121,13 +126,13 @@ class MusiclyDB:
 
     # Playlist Requester
 
-    def add_playlist(self, name, description, play_list_id):
+    def add_playlist(self, name, description):
 
         cursor = self.con.cursor()
-        query = ''' INSERT INTO Playlist( playlistName, playlistDescription, playlistID) VALUES ( ?,?,? ) '''
+        query = ''' INSERT INTO Playlist( playlistName, playlistDescription) VALUES (?,?) '''
 
         try:
-            cursor.execute(query, (name, description, play_list_id))
+            cursor.execute(query, (name, description))
         except sqlite3.IntegrityError as e:
             print("was already stored in table ")
 
@@ -141,10 +146,10 @@ class MusiclyDB:
 
         self.con.commit()
 
-    def remove_song_from_playlist(self, playlist_id, song: Song):
+    def remove_song_from_playlist(self, playlist_id, url):
         cursor = self.con.cursor()
         query = '''DELETE FROM PlaylistContainsSong WHERE playlistID = ? AND songURL = ?'''
-        cursor.execute(query, (playlist_id, song.url))
+        cursor.execute(query, (playlist_id, url))
         self.con.commit()
 
     def get_playlist_name_by_id(self, playlist_id):
@@ -157,14 +162,28 @@ class MusiclyDB:
 
     def get_all_playlists(self):
         cursor = self.con.cursor()
-        query = '''SELECT playlistID, count(*) FROM PlaylistContainsSong GROUP BY playlistID'''
+        query = '''SELECT Playlist.playlistID, playlistName, count(*)
+                    FROM Playlist
+                    LEFT JOIN PlaylistContainsSong ON PlaylistContainsSong.playlistID = Playlist.playlistID
+                    GROUP BY Playlist.playlistID'''
         cursor.execute(query)
         self.con.commit()
-        playlist_number_of_songs = cursor.fetchall()
+        list1 = cursor.fetchall()
 
-        playlist_name_id_songs = [[self.get_playlist_name_by_id(item[0])] + list(item) for item in
-                                  playlist_number_of_songs]
-        return playlist_name_id_songs
+        query = '''SELECT playlistID
+                   FROM PlaylistContainsSong
+                   GROUP BY playlistID
+                            '''
+        cursor.execute(query)
+        list2 = cursor.fetchall()
+        self.con.commit()
+
+        for i in range(len(list1)):
+            if list1[i][2] == 1 and not list2.__contains__(list1[i][1]):
+                list1[i] = list1[i][:2] + (0,)
+
+        return list1
+
 
     def get_playlist_information(self, playlist_id, ordered_by, ascending):
         cursor = self.con.cursor()
@@ -397,7 +416,8 @@ class MusiclyDB:
         for item in artists_list:
             artist = Artist(item[0], item[1])
             new_artists_list.append(artist)
-            bands_list.append(item[2])
+            temp = []; temp.append(item[2])
+            bands_list.append(temp)
 
         return new_artists_list, bands_list
 

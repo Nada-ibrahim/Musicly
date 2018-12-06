@@ -1,7 +1,8 @@
 from sqliteDB.musicly_db import MusiclyDB
-from database_requester.song_requester import SongRequester
+from ui.welcome_page import WelcomePage
 
 db = MusiclyDB()
+welcome = WelcomePage(db)
 # song = SongRequester(db)
 
 # db.get_all_songs()
