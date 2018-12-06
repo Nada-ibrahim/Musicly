@@ -100,6 +100,37 @@ class MusiclyDB:
         self.add_song("songGenre2", "songURL2", 1, "Cairokee", "ed7ak", "release2", "lyrics2", 4)
         self.add_song_to_playlist(1, "songURL2")
 
+        self.add_band("Jackson")
+        self.add_artist(Artist("Michael Jackson", "29-8-1958"))
+        self.add_artist_to_band("Jackson", "Michael Jackson")
+
+        self.add_playlist("Thriller", "Thriller is the sixth studio album by American singer Michael Jackson, "
+                                      "released on November 30, 1982, in the United States")
+
+        self.add_album("Michael Jackson", "Thriller")
+
+        self.add_song("Post-disco", "Michael Jackson/Thriller/01. Wanna be startin' somethin'.wav", 6, "Jackson", "Wanna be startin' somethin'", "8-5-1983", "lyrics1", 6)
+        self.add_song_to_playlist(2, "Michael Jackson/Thriller/01. Wanna be startin' somethin'.wav")
+
+        self.add_song("Rock", "Michael Jackson/Thriller/02. Baby Be Mine.wav", 6, "Jackson", "Baby Be Mine", "30-11-1982", "lyrics2", 4)
+        self.add_song_to_playlist(2, "Michael Jackson/Thriller/02. Baby Be Mine.wav")
+
+        self.add_song("Post-disco", "Michael Jackson/Thriller/03. Thriller.wav", 6, "Jackson", "Thriller", "2-11-1983",
+                      "It's close to midnight "
+                      "Something evil's lurking from the dark"
+                      "Under the moonlight"
+                      "You see a sight that almost stops your heart"
+                      "You try to scream"
+                      "But terror takes the sound before you make it"
+                      "You start to freeze"
+                      "As horror looks you right between your eyes"
+                      "You're paralyzed", 6)
+
+        self.add_song_to_playlist(2, "Michael Jackson/Thriller/03. Thriller.wav")
+
+        self.add_song("Hard rock", "Michael Jackson/Thriller/04. Beat It.wav", 6, "Jackson", "Beat It", "14-2-1983", "lyrics4", 5)
+        self.add_song_to_playlist(2, "Michael Jackson/Thriller/04. Beat It.wav")
+
     # Band Requester
 
     def add_band(self, band_name):
@@ -267,6 +298,14 @@ class MusiclyDB:
             new_songs_list.append(song)
 
         return new_songs_list
+
+    def get_url_song_by_name(self, song_name):
+        cursor = self.con.cursor()
+        query = ''' SELECT songURL FROM Song WHERE songName = ? '''
+        cursor.execute(query, (song_name,))
+        url = cursor.fetchall()
+        self.con.commit()
+        return url[0][0]
 
     def remove_song(self, song_name):
         cursor = self.con.cursor()
