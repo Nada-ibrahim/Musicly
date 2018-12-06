@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="536c9bd1-aa24-4b77-b211-76db05491c40" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/Musicly.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Musicly.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Song.py" beforeDir="false" afterPath="$PROJECT_DIR$/Song.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sqliteDB/musicly_db.py" beforeDir="false" afterPath="$PROJECT_DIR$/sqliteDB/musicly_db.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -51,23 +47,23 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="dot" value="1" />
-          <entry key="py" value="38" />
+          <entry key="py" value="39" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="PLAIN_TEXT" value="1" />
-          <entry key="Python" value="38" />
+          <entry key="Python" value="39" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="6513" />
+          <entry key="py" value="6514" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="6488" />
+          <entry key="Python" value="6489" />
           <entry key="SQL" value="25" />
         </counts>
       </usages-collector>
@@ -78,14 +74,23 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/sqliteDB/musicly_db.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="269">
-              <caret line="376" lean-forward="true" selection-start-line="376" selection-end-line="376" />
+            <state relative-caret-position="-5851">
+              <caret line="220" column="25" lean-forward="true" selection-start-line="220" selection-start-column="25" selection-end-line="220" selection-end-column="25" />
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
-                <marker date="1544117383292" expanded="true" signature="6792:7481" ph="..." />
-                <marker date="1544117383292" expanded="true" signature="13809:14255" ph="..." />
-                <marker date="1544117383292" expanded="true" signature="15466:15471" ph="..." />
+                <marker date="1544117929261" expanded="true" signature="11083:11772" ph="..." />
+                <marker date="1544117929261" expanded="true" signature="18100:18546" ph="..." />
+                <marker date="1544117929261" expanded="true" signature="19757:19762" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/main.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="4" column="21" lean-forward="true" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -207,7 +212,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="165" />
     <option name="y" value="-14" />
     <option name="width" value="1890" />
@@ -226,6 +231,11 @@
             <path>
               <item name="ConceptsAssgnment_2" type="b2602c69:ProjectViewProjectNode" />
               <item name="ConceptsAssgnment_2" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ConceptsAssgnment_2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ConceptsAssgnment_2" type="462c0819:PsiDirectoryNode" />
+              <item name="sqliteDB" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -348,11 +358,11 @@
     <frame x="-7" y="-7" width="1550" height="840" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.28322148" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.28322148" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3282313" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32768363" />
       <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.38841808" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -424,13 +434,6 @@
     <entry file="file://$PROJECT_DIR$/database_requester/playlist_requester.py" />
     <entry file="file://$PROJECT_DIR$/database_requester/song_requester.py" />
     <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36/Lib/codecs.py" />
-    <entry file="file://$PROJECT_DIR$/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/classes.dot">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="242">
@@ -497,15 +500,22 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="4" column="21" lean-forward="true" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/sqliteDB/musicly_db.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
-          <caret line="376" lean-forward="true" selection-start-line="376" selection-end-line="376" />
+        <state relative-caret-position="-5851">
+          <caret line="220" column="25" lean-forward="true" selection-start-line="220" selection-start-column="25" selection-end-line="220" selection-end-column="25" />
           <folding>
             <element signature="e#0#14#0" expanded="true" />
-            <marker date="1544117383292" expanded="true" signature="6792:7481" ph="..." />
-            <marker date="1544117383292" expanded="true" signature="13809:14255" ph="..." />
-            <marker date="1544117383292" expanded="true" signature="15466:15471" ph="..." />
+            <marker date="1544117929261" expanded="true" signature="11083:11772" ph="..." />
+            <marker date="1544117929261" expanded="true" signature="18100:18546" ph="..." />
+            <marker date="1544117929261" expanded="true" signature="19757:19762" ph="..." />
           </folding>
         </state>
       </provider>

@@ -1,5 +1,4 @@
 import sqlite3
-from operator import itemgetter
 from pathlib import Path
 
 from Song import Song
@@ -7,6 +6,7 @@ from Playlist import Playlist
 from Artist import Artist
 from Album import Album
 from typing import List
+
 
 class MusiclyDB:
 
@@ -25,61 +25,83 @@ class MusiclyDB:
     def create_tables(self):
         cursor = self.con.cursor()
 
-        cursor.execute('''CREATE TABLE IF NOT EXISTS Playlist (
-                              playlistID INTEGER PRIMARY KEY NOT NULL, 
-                              playlistName VARCHAR(100) NOT NULL,
-                              playlistDescription VARCHAR(200)
-                            );
+        cursor.execute(''' CREATE TABLE IF NOT EXISTS Playlist (
+                            playlistID INTEGER PRIMARY KEY NOT NULL, 
+                            playlistName VARCHAR(100) NOT NULL,
+                            playlistDescription VARCHAR(200));
                        ''')
 
-        cursor.execute('''CREATE TABLE IF NOT EXISTS Album (
-                              albumID    INTEGER PRIMARY KEY NOT NULL, 
-                              bandName   VARCHAR(100) NOT NULL, 
-                              albumTitle VARCHAR(100) NOT NULL
+        cursor.execute('''
+            CREATE TABLE IF NOT EXISTS Album (
+                            albumID    INTEGER PRIMARY KEY NOT NULL, 
+                            bandName   VARCHAR(100) NOT NULL, 
+                            albumTitle VARCHAR(100) NOT NULL,
+
+                            CONSTRAINT fk_BandName_Album
+                            FOREIGN KEY (bandName)
+                            REFERENCES Band(bandName)
+                            ON DELETE CASCADE   
                             );
                        ''')
 
         cursor.execute('''CREATE TABLE IF NOT EXISTS Band (
-                              bandName VARCHAR(100) PRIMARY KEY NOT NULL
-                            );
+                            bandName VARCHAR(100) PRIMARY KEY NOT NULL);
                        ''')
 
         cursor.execute('''CREATE TABLE IF NOT EXISTS Artist (
-                              artistName VARCHAR(100) PRIMARY KEY NOT NULL, 
-                              dateBirth  DATE
-                            );
+                          artistName VARCHAR(100) PRIMARY KEY NOT NULL, 
+                          dateBirth  DATE);
                        ''')
 
         cursor.execute('''CREATE TABLE IF NOT EXISTS Song (
-                               songURL            VARCHAR(200) PRIMARY KEY NOT NULL, 
-                               albumID            INTEGER NOT NULL,
-                               bandName           VARCHAR(100) NOT NULL,  
-                               featured_artist    VARCHAR(100) NOT NULL,  
-                               songName           VARCHAR(100) UNIQUE NOT NULL,
-                               songRelease        DATE         ,
-                               songLyrics         VARCHAR(200) ,
-                               songLength         VARCHAR(100)      
+                            songURL            VARCHAR(200) PRIMARY KEY NOT NULL, 
+                            albumID            INTEGER NOT NULL,
+                            bandName           VARCHAR(100) NOT NULL,  
+                            featured_artist    VARCHAR(100) NOT NULL,  
+                            songName           VARCHAR(100) UNIQUE NOT NULL,
+                            songRelease        DATE         ,
+                            songLyrics         VARCHAR(200) ,
+                            songLength         VARCHAR(100) ,
+                              
+                            FOREIGN KEY(bandName, featured_artist)  REFERENCES Band(bandName, featured_artist),
+
+                            CONSTRAINT fk_AlbumID_Song
+                            FOREIGN KEY (albumID)
+                            REFERENCES Album(albumID)
+                            ON DELETE CASCADE
                              );
                         ''')
 
         cursor.execute('''CREATE TABLE IF NOT EXISTS SongGenres (
-                              songURL      VARCHAR(200) NOT NULL, 
-                              songGenre    VARCHAR(100) NOT NULL,
-                              PRIMARY KEY (songURL, songGenre)
+                            songURL      VARCHAR(200) NOT NULL, 
+                            songGenre    VARCHAR(100) NOT NULL,
+                            PRIMARY KEY (songURL, songGenre),
+                            CONSTRAINT fk_Song_Genres
+                            FOREIGN KEY (songURL)
+                            REFERENCES Song(songURL)
+                            ON DELETE CASCADE
                             );
                        ''')
 
         cursor.execute('''CREATE TABLE IF NOT EXISTS PlaylistContainsSong (
-                              playlistID INTEGER NOT NULL, 
-                              songURL    VARCHAR(200) NOT NULL, 
-                              PRIMARY KEY (playlistID, songURL)
+                            playlistID INTEGER NOT NULL, 
+                            songURL    VARCHAR(200) NOT NULL, 
+                            PRIMARY KEY (playlistID, songURL),
+                            CONSTRAINT fk_Song_Playlist
+                            FOREIGN KEY (songURL)
+                            REFERENCES Song(songURL)
+                            ON DELETE CASCADE
                             );
                        ''')
 
         cursor.execute('''CREATE TABLE IF NOT EXISTS BandContainsArtists (
-                              bandName   VARCHAR(100) NOT NULL, 
-                              artistName VARCHAR(100) NOT NULL,
-                              PRIMARY KEY (bandName, artistName)
+                            bandName   VARCHAR(100) NOT NULL, 
+                            artistName VARCHAR(100) NOT NULL,
+                            PRIMARY KEY (bandName, artistName),
+                            CONSTRAINT fk_Artist_Band
+                            FOREIGN KEY (artistName)
+                            REFERENCES Artist(artistName)
+                            ON DELETE CASCADE
                             );
                        ''')
         self.con.commit()
@@ -100,6 +122,7 @@ class MusiclyDB:
         self.add_song("songGenre2", "songURL2", 1, "Cairokee", "", "ed7ak", "release2", "lyrics2", 4)
         self.add_song_to_playlist(1, "songURL2")
 
+        '''Michael Jackson'''
         self.add_band("Jackson")
         self.add_artist(Artist("Michael Jackson", "29-8-1958"))
         self.add_artist_to_band("Jackson", "Michael Jackson")
@@ -107,15 +130,24 @@ class MusiclyDB:
         self.add_playlist("Thriller", "Thriller is the sixth studio album by American singer Michael Jackson, "
                                       "released on November 30, 1982, in the United States")
 
-        self.add_album("Michael Jackson", "Thriller")
+        self.add_album("Jackson", "Thriller")
 
-        self.add_song("Post-disco", "Michael Jackson/Thriller/01. Wanna be startin' somethin'.wav", 6, "Jackson", "", "Wanna be startin' somethin'", "8-5-1983", "lyrics1", 6)
+        self.add_song("Post-disco", "Michael Jackson/Thriller/01. Wanna be startin' somethin'.wav", 2, "Jackson", "", "Wanna be startin' somethin'", "8-5-1983",
+                      "I said you wanna be startin' somethin'"
+                      "You got to be startin' somethin' "
+                      "I said you wanna be startin' somethin'"
+                      "You got to be startin' somethin'"
+                      "It's too high to get over (yeah, yeah)"
+                      "Too low to get under (yeah, yeah)"
+                      "You're stuck in the middle (yeah, yeah)"
+                      "And the pain is thunder (yeah, yeah)"
+                      "It's too high to get over (yeah, yeah)"
+                      "Too low to get under (yeah, yeah)"
+                      "You're stuck in the middle (yeah, yeah)"
+                      "And the pain is thunder (yeah, yeah)", 6)
         self.add_song_to_playlist(2, "Michael Jackson/Thriller/01. Wanna be startin' somethin'.wav")
 
-        self.add_song("Rock", "Michael Jackson/Thriller/02. Baby Be Mine.wav", 6, "Jackson", "", "Baby Be Mine", "30-11-1982", "lyrics2", 4)
-        self.add_song_to_playlist(2, "Michael Jackson/Thriller/02. Baby Be Mine.wav")
-
-        self.add_song("Post-disco", "Michael Jackson/Thriller/03. Thriller.wav", 6, "Jackson", "", "Thriller", "2-11-1983",
+        self.add_song("Post-disco", "Michael Jackson/Thriller/03. Thriller.wav", 2, "Jackson", "", "Thriller", "2-11-1983",
                       "It's close to midnight "
                       "Something evil's lurking from the dark"
                       "Under the moonlight"
@@ -128,11 +160,56 @@ class MusiclyDB:
 
         self.add_song_to_playlist(2, "Michael Jackson/Thriller/03. Thriller.wav")
 
-        self.add_song("Hard rock", "Michael Jackson/Thriller/04. Beat It.wav", 6, "Jackson", "", "Beat It", "14-2-1983", "lyrics4", 5)
+        self.add_song("Hard rock", "Michael Jackson/Thriller/04. Beat It.wav", 2, "Jackson", "", "Beat It", "14-2-1983",
+                      "They told him don't you ever come around here"
+                      "Don't want to see your face, you better disappear"
+                      "The fire's in their eyes and their words are really clear"
+                      "So beat it, just beat it", 5)
         self.add_song_to_playlist(2, "Michael Jackson/Thriller/04. Beat It.wav")
 
-    # Band Requester
+        '''Eagles'''
+        self.add_band("Eagles")
+        self.add_artist(Artist("Don Henley", "22-5-1947"))
+        self.add_artist(Artist("Joe Walsh", "20-11-1947"))
+        self.add_artist(Artist("Timothy B. Schmit", "30-10-1947"))
+        self.add_artist_to_band("Don Henley", "Eagles")
+        self.add_artist_to_band("Joe Walsh", "Eagles")
+        self.add_artist_to_band("Timothy B. Schmit", "Eagles")
 
+        self.add_playlist("Their Greatest Hits", "Their Greatest Hits (1971–1975) is the first compilation album by "
+                                                 "the Eagles, released in 1976. The album contains a selection of "
+                                                 "songs from the Eagles' first four albums released in the period "
+                                                 "from the Eagles' formation in 1971 up to 1975. It was the "
+                                                 "best-selling album of the 20th century in the United States")
+
+        self.add_album("Eagles", "Their Greatest Hits")
+
+        self.add_song("Country rock", "Eagles/Their Greatest Hits/01. Take It Easy.wav", 3, "Eagles", "",
+                      "Take It Easy", "1-5-1972",
+                      "Take It easy, take it easy"
+                      "Don't let the sound of your own wheels"
+                      "Drive you crazy"
+                      "Lighten up while you still can"
+                      "Don't even try to understand"
+                      "Just find a place to make your stand"
+                      "And take it easy", 4)
+        self.add_song_to_playlist(3, "Eagles/Their Greatest Hits/01. Take It Easy.wav")
+
+        self.add_song("Country rock", "Eagles/Their Greatest Hits/02. Already Gone.wav", 3, "Eagles", "",
+                      "Already Gone", "19-4-1974",
+                      "Well, I heard some people talkin' just the other day "
+                      "And they said you were gonna put me on a shelf "
+                      "But let me tell you I got some news for you "
+                      "And you'll soon find out it's true "
+                      "And then you'll have to eat your lunch all by yourself '"
+                      "Cause I'm already gone "
+                      "And I'm feelin' strong "
+                      "I will sing this vict'ry song "
+                      "Woo hoo hoo, my my, woo hoo hoo"
+                      "", 4)
+        self.add_song_to_playlist(3, "Eagles/Their Greatest Hits/02. Already Gone.wav")
+
+    # Band Requester
     def add_band(self, band_name, artists_list: List[Artist]):
         cursor = self.con.cursor()
         query = ''' INSERT INTO Band( bandName ) VALUES ( ? ) '''
