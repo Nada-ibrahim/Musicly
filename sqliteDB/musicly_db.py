@@ -1,12 +1,10 @@
 import sqlite3
-from operator import itemgetter
 from pathlib import Path
 
 from Song import Song
 from Playlist import Playlist
 from Artist import Artist
 from Album import Album
-import datetime
 
 
 class MusiclyDB:
@@ -26,61 +24,83 @@ class MusiclyDB:
     def create_tables(self):
         cursor = self.con.cursor()
 
-        cursor.execute('''CREATE TABLE IF NOT EXISTS Playlist (
-                              playlistID INTEGER PRIMARY KEY NOT NULL, 
-                              playlistName VARCHAR(100) NOT NULL,
-                              playlistDescription VARCHAR(200)
-                            );
+        cursor.execute(''' CREATE TABLE IF NOT EXISTS Playlist (
+                            playlistID INTEGER PRIMARY KEY NOT NULL, 
+                            playlistName VARCHAR(100) NOT NULL,
+                            playlistDescription VARCHAR(200));
                        ''')
 
-        cursor.execute('''CREATE TABLE IF NOT EXISTS Album (
-                              albumID    INTEGER PRIMARY KEY NOT NULL, 
-                              bandName   VARCHAR(100) NOT NULL, 
-                              albumTitle VARCHAR(100) NOT NULL
+        cursor.execute('''
+            CREATE TABLE IF NOT EXISTS Album (
+                            albumID    INTEGER PRIMARY KEY NOT NULL, 
+                            bandName   VARCHAR(100) NOT NULL, 
+                            albumTitle VARCHAR(100) NOT NULL,
+
+                            CONSTRAINT fk_BandName_Album
+                            FOREIGN KEY (bandName)
+                            REFERENCES Band(bandName)
+                            ON DELETE CASCADE   
                             );
                        ''')
 
         cursor.execute('''CREATE TABLE IF NOT EXISTS Band (
-                              bandName VARCHAR(100) PRIMARY KEY NOT NULL
-                            );
+                            bandName VARCHAR(100) PRIMARY KEY NOT NULL);
                        ''')
 
         cursor.execute('''CREATE TABLE IF NOT EXISTS Artist (
-                              artistName VARCHAR(100) PRIMARY KEY NOT NULL, 
-                              dateBirth  DATE
-                            );
+                          artistName VARCHAR(100) PRIMARY KEY NOT NULL, 
+                          dateBirth  DATE);
                        ''')
 
         cursor.execute('''CREATE TABLE IF NOT EXISTS Song (
-                               songURL            VARCHAR(200) PRIMARY KEY NOT NULL, 
-                               albumID            INTEGER NOT NULL,
-                               bandName           VARCHAR(100) NOT NULL,  
-                               featured_artist    VARCHAR(100) NOT NULL,  
-                               songName           VARCHAR(100) UNIQUE NOT NULL,
-                               songRelease        DATE         ,
-                               songLyrics         VARCHAR(200) ,
-                               songLength         VARCHAR(100)      
+                            songURL            VARCHAR(200) PRIMARY KEY NOT NULL, 
+                            albumID            INTEGER NOT NULL,
+                            bandName           VARCHAR(100) NOT NULL,  
+                            featured_artist    VARCHAR(100) NOT NULL,  
+                            songName           VARCHAR(100) UNIQUE NOT NULL,
+                            songRelease        DATE         ,
+                            songLyrics         VARCHAR(200) ,
+                            songLength         VARCHAR(100) ,
+                              
+                            FOREIGN KEY(bandName, featured_artist)  REFERENCES Band(bandName, featured_artist),
+
+                            CONSTRAINT fk_AlbumID_Song
+                            FOREIGN KEY (albumID)
+                            REFERENCES Album(albumID)
+                            ON DELETE CASCADE
                              );
                         ''')
 
         cursor.execute('''CREATE TABLE IF NOT EXISTS SongGenres (
-                              songURL      VARCHAR(200) NOT NULL, 
-                              songGenre    VARCHAR(100) NOT NULL,
-                              PRIMARY KEY (songURL, songGenre)
+                            songURL      VARCHAR(200) NOT NULL, 
+                            songGenre    VARCHAR(100) NOT NULL,
+                            PRIMARY KEY (songURL, songGenre),
+                            CONSTRAINT fk_Song_Genres
+                            FOREIGN KEY (songURL)
+                            REFERENCES Song(songURL)
+                            ON DELETE CASCADE
                             );
                        ''')
 
         cursor.execute('''CREATE TABLE IF NOT EXISTS PlaylistContainsSong (
-                              playlistID INTEGER NOT NULL, 
-                              songURL    VARCHAR(200) NOT NULL, 
-                              PRIMARY KEY (playlistID, songURL)
+                            playlistID INTEGER NOT NULL, 
+                            songURL    VARCHAR(200) NOT NULL, 
+                            PRIMARY KEY (playlistID, songURL),
+                            CONSTRAINT fk_Song_Playlist
+                            FOREIGN KEY (songURL)
+                            REFERENCES Song(songURL)
+                            ON DELETE CASCADE
                             );
                        ''')
 
         cursor.execute('''CREATE TABLE IF NOT EXISTS BandContainsArtists (
-                              bandName   VARCHAR(100) NOT NULL, 
-                              artistName VARCHAR(100) NOT NULL,
-                              PRIMARY KEY (bandName, artistName)
+                            bandName   VARCHAR(100) NOT NULL, 
+                            artistName VARCHAR(100) NOT NULL,
+                            PRIMARY KEY (bandName, artistName),
+                            CONSTRAINT fk_Artist_Band
+                            FOREIGN KEY (artistName)
+                            REFERENCES Artist(artistName)
+                            ON DELETE CASCADE
                             );
                        ''')
         self.con.commit()
