@@ -6,8 +6,7 @@ from Song import Song
 from Playlist import Playlist
 from Artist import Artist
 from Album import Album
-import datetime
-
+from typing import List
 
 class MusiclyDB:
 
@@ -134,7 +133,7 @@ class MusiclyDB:
 
     # Band Requester
 
-    def add_band(self, band_name):
+    def add_band(self, band_name, artists_list: List[Artist]):
         cursor = self.con.cursor()
         query = ''' INSERT INTO Band( bandName ) VALUES ( ? ) '''
 
@@ -142,8 +141,10 @@ class MusiclyDB:
             cursor.execute(query, (band_name,))
         except sqlite3.IntegrityError as e:
             print("was already stored in table ")
-
         self.con.commit()
+
+        for artist in artists_list:
+            self.add_artist_to_band(band_name, artist.name)
 
     def add_artist_to_band(self, band_name, artist_name):
         cursor = self.con.cursor()
@@ -155,6 +156,26 @@ class MusiclyDB:
             print("was already stored in table ")
 
         self.con.commit()
+
+    def remove_band(self, band_name):
+        cursor = self.con.cursor()
+        query = '''DELETE FROM Band WHERE bandName = ?'''
+        cursor.execute(query, (band_name, ))
+        self.con.commit()
+
+        query = '''SELECT count(*) FROM BandContainsArtists WHERE bandName = ?'''
+        cursor.execute(query, (band_name, ))
+        number_of_rows = cursor.fetchall()
+        self.con.commit()
+
+        query = '''DELETE FROM BandContainsArtists WHERE bandName = ?'''
+        cursor.execute(query, (band_name, ))
+        self.con.commit()
+
+        if number_of_rows == 1:
+            query = '''DELETE FROM Artist WHERE artistName = ?'''
+            cursor.execute(query, (band_name,))
+            self.con.commit()
 
     # Playlist Requester
 
@@ -216,7 +237,6 @@ class MusiclyDB:
 
         return list1
 
-
     def get_playlist_information(self, playlist_id, ordered_by, ascending):
         cursor = self.con.cursor()
         query = '''SELECT playlistName, playlistDescription FROM Playlist WHERE playlistID = ?'''
@@ -226,9 +246,11 @@ class MusiclyDB:
         playlist_info = cursor.fetchall()
         playlist = Playlist(*playlist_info[0])
 
-        query = '''SELECT PlaylistContainsSong.songURL, songName, songLength
+        query = '''SELECT PlaylistContainsSong.songURL, albumTitle, Song.bandName, featured_artist, songName, songRelease, songLyrics, songLength, songGenre
                     FROM PlaylistContainsSong
                     INNER JOIN Song ON Song.songURL = PlaylistContainsSong.songURL
+                    INNER JOIN Album ON Album.albumID = Song.albumID
+                    INNER JOIN SongGenres ON SongGenres.songURL = Song.songURL
                     WHERE playlistID = ?
                     ORDER BY ''' + ordered_by + ''' ''' + ascending
 
@@ -236,7 +258,7 @@ class MusiclyDB:
         old_songs_list = cursor.fetchall()
 
         for item in old_songs_list:
-            song = Song(url=item[0], name=item[1], length=item[2])
+            song = Song(*item)
             playlist.add_song(song)
 
         return playlist
@@ -249,7 +271,7 @@ class MusiclyDB:
 
     # Song Requester
 
-    def add_song(self, song_genre, song_url, album_id, band_name, featured_artist, song_name, song_release, song_lyrics,
+    def add_song(self, song_genres : List, song_url, album_id, band_name, featured_artist, song_name, song_release, song_lyrics,
                  song_length):
 
         cursor = self.con.cursor()
@@ -265,14 +287,13 @@ class MusiclyDB:
         query = ''' INSERT INTO SongGenres( songURL, songGenre ) 
                     VALUES ( ?, ? ) '''
         try:
-            cursor.execute(query, (song_url, song_genre))
+            for genere in song_genres:
+                cursor.execute(query, (song_url, genere))
+                self.con.commit()
         except sqlite3.IntegrityError as e:
             print("was already stored in table ")
 
-        self.con.commit()
-
     def get_song_info(self, song_name):
-
         cursor = self.con.cursor()
         query = ''' SELECT * FROM Song WHERE songName = ? '''
         cursor.execute(query, (song_name,))
@@ -328,6 +349,20 @@ class MusiclyDB:
 
         return new_songs_list
 
+    def get_featured_band_songs(self, band_name):
+        cursor = self.con.cursor()
+        query = ''' SELECT songURL, songName, songLength FROM Song WHERE featured_artist = ? '''
+        cursor.execute(query, (band_name,))
+        songs_list = cursor.fetchall()
+        self.con.commit()
+
+        new_songs_list = []
+        for item in songs_list:
+            song = Song(url=item[0], name=item[1], length=item[2])
+            new_songs_list.append(song)
+
+        return new_songs_list
+
     def get_artist_songs(self, artist_name):
         cursor = self.con.cursor()
         query = ''' SELECT bandName FROM BandContainsArtists WHERE  artistName = ?'''
@@ -338,25 +373,30 @@ class MusiclyDB:
         artist_songs = []
         for band_name in bands_names:
             artist_songs += self.get_band_songs(band_name[0])
+            artist_songs += self.get_featured_band_songs(band_name[0])
 
         return artist_songs
 
     def get_song_by_url(self, URL):
         cursor = self.con.cursor()
-        query = ''' SELECT * FROM Song WHERE songURL = ? '''
+        query = ''' SELECT songURL, albumTitle, bandName, featured_artist, songName, songRelease, songLyrics, songLength
+                    FROM Song 
+                    INNER JOIN Album ON Album.albumID = Song.albumID
+                    WHERE songURL = ? '''
+
         cursor.execute(query, (URL,))
         songs_list = cursor.fetchall()
         self.con.commit()
 
-        new_songs_list = []
-        for item in songs_list:
-            song = Song(url=item[0], album=item[1],
-                        band=item[2], featured_artist=item[3],
-                        name=item[4], release_date=item[5],
-                        lyrics=item[6], length=item[7])
-            new_songs_list.append(song)
+        song = Song(*songs_list[0])
 
-        return new_songs_list[0]
+        query = '''SELECT songGenre FROM SongGenres WHERE songURL = ?'''
+        cursor.execute(query, (URL, ))
+        genres_list = cursor.fetchall()
+        self.con.commit()
+
+        song.genres = genres_list
+        return song
 
     def get_genre_songs(self, genre_name):
         cursor = self.con.cursor()
@@ -435,14 +475,16 @@ class MusiclyDB:
 
     def add_artist(self, artist: Artist):
         cursor = self.con.cursor()
-        query = '''INSERT INTO Artist( artistName, dateBirth ) VALUES ( ?,? )'''
+        query = '''INSERT INTO Artist(artistName, dateBirth) VALUES(?, ?)'''
 
         try:
             cursor.execute(query, (artist.name, artist.date_of_birth))
-        except:
+        except sqlite3.IntegrityError as e:
             print("was already stored in table ")
 
-    def get_all_Artists(self):
+        self.add_band(artist.name, [artist])
+
+    def get_all_artists(self):
         cursor = self.con.cursor()
         query = '''SELECT Artist.artistName, dateBirth, bandName
                    FROM Artist
@@ -462,7 +504,17 @@ class MusiclyDB:
         return new_artists_list, bands_list
 
     def remove_artist(self, artist_name):
+        self.remove_band(artist_name)
+
         cursor = self.con.cursor()
         query = ''' DELETE FROM Artist WHERE artistName = ? '''
+        cursor.execute(query, (artist_name,))
+        self.con.commit()
+
+        query = '''DELETE FROM BandContainsArtists WHERE artistName = ?'''
+        cursor.execute(query, (artist_name,))
+        self.con.commit()
+
+        query = '''DELETE FROM Band WHERE bandName = ?'''
         cursor.execute(query, (artist_name,))
         self.con.commit()

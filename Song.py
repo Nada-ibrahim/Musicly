@@ -9,8 +9,8 @@ class Song:
     album: Album
     release_date: date
 
-    def __init__(self, url="", album=None, band=None, name="",
-                 release_date=None, lyrics="", length="", featured_artist=None, genres=None):
+    def __init__(self, url="", album=None, band=None, featured_artist=None, name="",
+                 release_date=None, lyrics="", length="", genres=None):
         self.name = name
         self.length = length
         self.url = url
