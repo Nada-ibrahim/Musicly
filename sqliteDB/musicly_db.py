@@ -52,15 +52,16 @@ class MusiclyDB:
                        ''')
 
         cursor.execute('''CREATE TABLE IF NOT EXISTS Song (
-                              songURL     VARCHAR(200) PRIMARY KEY NOT NULL, 
-                              albumID     INTEGER NOT NULL,
-                              bandName    VARCHAR(100) NOT NULL,  
-                              songName    VARCHAR(100) UNIQUE NOT NULL,
-                              songRelease DATE         ,
-                              songLyrics  VARCHAR(200) ,
-                              songLength  VARCHAR(100)      
-                            );
-                       ''')
+                               songURL            VARCHAR(200) PRIMARY KEY NOT NULL, 
+                               albumID            INTEGER NOT NULL,
+                               bandName           VARCHAR(100) NOT NULL,  
+                               featured_artist    VARCHAR(100) NOT NULL,  
+                               songName           VARCHAR(100) UNIQUE NOT NULL,
+                               songRelease        DATE         ,
+                               songLyrics         VARCHAR(200) ,
+                               songLength         VARCHAR(100)      
+                             );
+                        ''')
 
         cursor.execute('''CREATE TABLE IF NOT EXISTS SongGenres (
                               songURL      VARCHAR(200) NOT NULL, 
@@ -94,10 +95,10 @@ class MusiclyDB:
 
         self.add_album("Cairokee", "No2ta beda")
 
-        self.add_song("songGenre", "songURL", 1, "Cairokee", "layla", "release", "lyrics", 3)
+        self.add_song("songGenre", "songURL", 1, "Cairokee", "",  "layla", "release", "lyrics", 3)
         self.add_song_to_playlist(1, "songURL")
 
-        self.add_song("songGenre2", "songURL2", 1, "Cairokee", "ed7ak", "release2", "lyrics2", 4)
+        self.add_song("songGenre2", "songURL2", 1, "Cairokee", "", "ed7ak", "release2", "lyrics2", 4)
         self.add_song_to_playlist(1, "songURL2")
 
         self.add_band("Jackson")
@@ -109,13 +110,13 @@ class MusiclyDB:
 
         self.add_album("Michael Jackson", "Thriller")
 
-        self.add_song("Post-disco", "Michael Jackson/Thriller/01. Wanna be startin' somethin'.wav", 6, "Jackson", "Wanna be startin' somethin'", "8-5-1983", "lyrics1", 6)
+        self.add_song("Post-disco", "Michael Jackson/Thriller/01. Wanna be startin' somethin'.wav", 6, "Jackson", "", "Wanna be startin' somethin'", "8-5-1983", "lyrics1", 6)
         self.add_song_to_playlist(2, "Michael Jackson/Thriller/01. Wanna be startin' somethin'.wav")
 
-        self.add_song("Rock", "Michael Jackson/Thriller/02. Baby Be Mine.wav", 6, "Jackson", "Baby Be Mine", "30-11-1982", "lyrics2", 4)
+        self.add_song("Rock", "Michael Jackson/Thriller/02. Baby Be Mine.wav", 6, "Jackson", "", "Baby Be Mine", "30-11-1982", "lyrics2", 4)
         self.add_song_to_playlist(2, "Michael Jackson/Thriller/02. Baby Be Mine.wav")
 
-        self.add_song("Post-disco", "Michael Jackson/Thriller/03. Thriller.wav", 6, "Jackson", "Thriller", "2-11-1983",
+        self.add_song("Post-disco", "Michael Jackson/Thriller/03. Thriller.wav", 6, "Jackson", "", "Thriller", "2-11-1983",
                       "It's close to midnight "
                       "Something evil's lurking from the dark"
                       "Under the moonlight"
@@ -128,7 +129,7 @@ class MusiclyDB:
 
         self.add_song_to_playlist(2, "Michael Jackson/Thriller/03. Thriller.wav")
 
-        self.add_song("Hard rock", "Michael Jackson/Thriller/04. Beat It.wav", 6, "Jackson", "Beat It", "14-2-1983", "lyrics4", 5)
+        self.add_song("Hard rock", "Michael Jackson/Thriller/04. Beat It.wav", 6, "Jackson", "", "Beat It", "14-2-1983", "lyrics4", 5)
         self.add_song_to_playlist(2, "Michael Jackson/Thriller/04. Beat It.wav")
 
     # Band Requester
@@ -248,16 +249,16 @@ class MusiclyDB:
 
     # Song Requester
 
-    def add_song(self, song_genre, song_url, album_id, band_name, song_name, song_release, song_lyrics,
+    def add_song(self, song_genre, song_url, album_id, band_name, featured_artist, song_name, song_release, song_lyrics,
                  song_length):
 
         cursor = self.con.cursor()
-        query = ''' INSERT INTO Song( songURL, albumID, bandName, songName, songRelease, songLyrics, songLength ) 
-                    VALUES ( ?, ?, ?, ?, ?, ?, ? ) '''
+        query = ''' INSERT INTO Song( songURL, albumID, bandName, featured_artist, songName, songRelease, songLyrics, songLength ) 
+                    VALUES ( ?, ?, ?, ?, ?, ?, ?, ? ) '''
 
         try:
             cursor.execute(query,
-                           (song_url, album_id, band_name, song_name, song_release, song_lyrics, song_length))
+                           (song_url, album_id, band_name, featured_artist, song_name, song_release, song_lyrics, song_length))
         except sqlite3.IntegrityError as e:
             print("was already stored in table ")
 
