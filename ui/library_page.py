@@ -4,14 +4,14 @@ from ui.page import Page
 from ui.songs_page import SongsPage
 
 
-class AlbumPage(Page):
+class LibraryPage(Page):
     def __init__(self, db):
         super().__init__(db)
         while True:
             self.print_title("All songs")
 
             songs = self._db.get_all_songs()
-            headers = ["Song Name", "Song Length", "Song URL", "Release Date", "Band"]
+            headers = ["Song Name", "Song Length", "Release Date", "Band"]
             self.print_attrs(headers, songs)
 
             print("\n1- Add Song")
@@ -38,14 +38,17 @@ class AlbumPage(Page):
     def add_song(self):
         name = input("Enter name: ")
         url = input("Enter URL: ")
-
-        headers = ["Band Name"]
-        artists_list, bands_list = self._db.get_all_Artists()
-        self.print_attrs(headers, bands_list)
+        headers = ["Band/Artist Name"]
+        bands_list = self._db.get_all_bands()
+        artists_list = self._db.get_all_artists()
+        self.print_list(headers, bands_list)
+        self.print_attrs(["----------"], artists_list)
         band_name = input("Enter name of the band/artist: ")
-
+        featured_artist = input("Enter featured artist (-1 if None): ")
+        if featured_artist == "-1":
+            featured_artist = None
         album_title_id_songs = self._db.get_all_albums()
-        headers = ["Title", "ID", "Songs No."]
+        headers = ["ID", "Title", "Songs No."]
         self.print_list(headers, album_title_id_songs)
         album_id = input("Enter Album ID: ")
 
@@ -61,7 +64,7 @@ class AlbumPage(Page):
         songs_genres = input().split(' ')
 
         # TODO: add list of genres to addSong
-        self._db.add_song(songs_genres, url, album_id, band_name
+        self._db.add_song(songs_genres, url, album_id, band_name, featured_artist
                           , name, release_date, lyrics, duration)
 
     def remove_song(self):

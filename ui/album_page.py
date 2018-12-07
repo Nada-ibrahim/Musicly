@@ -13,9 +13,9 @@ class AlbumPage(Page):
         while True:
             self.print_title("Albums")
 
-            album_title_id_songs = self._db.get_all_albums()
-            headers = ["Title", "ID" "Songs No."]
-            self.print_list(headers, album_title_id_songs)
+            album_id_title_songs = self._db.get_all_albums()
+            headers = ["ID", "Title",  "Songs No."]
+            self.print_list(headers, album_id_title_songs)
 
             print("\n1- View Album")
             print("2- Add Album")
@@ -40,15 +40,13 @@ class AlbumPage(Page):
 
     def add_album(self):
         title = input("Enter Title: ")
-        headers = ["Band Name"]
-        artists_list, bands_list = self._db.get_all_Artists()
-        self.print_attrs(headers, bands_list)
+        headers = ["Band/Artist Name"]
+        bands_list = self._db.get_all_bands()
+        artists_list = self._db.get_all_artists()
+        self.print_list(headers, bands_list)
+        self.print_attrs(["----------"], artists_list)
         band_name = input("Enter name of the band/artist: ")
-        songs = self._db.get_all_songs()
-        headers = ["Song Name", "Song Length", "Song URL", "Release Date", "Band"]
-        self.print_attrs(headers, songs)
-        print("Enter all URLs of bands songs: ")
-        songs_url = input().split(' ')
+
         # TODO: add songs urls to album
         self._db.add_album(band_name, title)
 

@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="musicly.db">
+  <database-model serializer="dbm" rdbms="SQLITE" format-version="4.9">
+    <root id="1">
+      <ServerVersion>3.25.1</ServerVersion>
+    </root>
+    <schema id="2" parent="1" name="main">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <collation id="3" parent="1" name="BINARY"/>
+    <collation id="4" parent="1" name="NOCASE"/>
+    <collation id="5" parent="1" name="RTRIM"/>
+    <table id="6" parent="2" name="Album"/>
+    <table id="7" parent="2" name="Artist"/>
+    <table id="8" parent="2" name="Band"/>
+    <table id="9" parent="2" name="BandContainsArtists"/>
+    <table id="10" parent="2" name="Playlist"/>
+    <table id="11" parent="2" name="PlaylistContainsSong"/>
+    <table id="12" parent="2" name="Song"/>
+    <table id="13" parent="2" name="SongGenres"/>
+    <table id="14" parent="2" name="sqlite_master">
+      <System>1</System>
+    </table>
+    <column id="15" parent="6" name="albumID">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="16" parent="6" name="bandName">
+      <Position>2</Position>
+      <DataType>VARCHAR(100)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="17" parent="6" name="albumTitle">
+      <Position>3</Position>
+      <DataType>VARCHAR(100)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="18" parent="6">
+      <ColNames>albumID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="19" parent="6" name="fk_BandName_Album">
+      <ColNames>bandName</ColNames>
+      <RefTableName>Band</RefTableName>
+      <RefColNames>bandName</RefColNames>
+      <OnDelete>set-null</OnDelete>
+    </foreign-key>
+    <column id="20" parent="7" name="artistName">
+      <Position>1</Position>
+      <DataType>VARCHAR(100)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="21" parent="7" name="dateBirth">
+      <Position>2</Position>
+      <DataType>DATE|0s</DataType>
+    </column>
+    <index id="22" parent="7" name="sqlite_autoindex_Artist_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>artistName</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <key id="23" parent="7">
+      <ColNames>artistName</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>sqlite_autoindex_Artist_1</UnderlyingIndexName>
+    </key>
+    <column id="24" parent="8" name="bandName">
+      <Position>1</Position>
+      <DataType>VARCHAR(100)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="25" parent="8" name="sqlite_autoindex_Band_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>bandName</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <key id="26" parent="8">
+      <ColNames>bandName</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>sqlite_autoindex_Band_1</UnderlyingIndexName>
+    </key>
+    <column id="27" parent="9" name="bandName">
+      <Position>1</Position>
+      <DataType>VARCHAR(100)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="28" parent="9" name="artistName">
+      <Position>2</Position>
+      <DataType>VARCHAR(100)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="29" parent="9" name="sqlite_autoindex_BandContainsArtists_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>bandName
+artistName</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <key id="30" parent="9">
+      <ColNames>bandName
+artistName</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>sqlite_autoindex_BandContainsArtists_1</UnderlyingIndexName>
+    </key>
+    <foreign-key id="31" parent="9" name="fk_Contains_Band">
+      <ColNames>bandName</ColNames>
+      <RefTableName>Band</RefTableName>
+      <RefColNames>bandName</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <foreign-key id="32" parent="9" name="fk_Contains_Artist">
+      <ColNames>artistName</ColNames>
+      <RefTableName>Artist</RefTableName>
+      <RefColNames>artistName</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="33" parent="10" name="playlistID">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="34" parent="10" name="playlistName">
+      <Position>2</Position>
+      <DataType>VARCHAR(100)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="35" parent="10" name="playlistDescription">
+      <Position>3</Position>
+      <DataType>VARCHAR(200)|0s</DataType>
+    </column>
+    <key id="36" parent="10">
+      <ColNames>playlistID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="37" parent="11" name="playlistID">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="38" parent="11" name="songURL">
+      <Position>2</Position>
+      <DataType>VARCHAR(200)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="39" parent="11" name="sqlite_autoindex_PlaylistContainsSong_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>playlistID
+songURL</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <key id="40" parent="11">
+      <ColNames>playlistID
+songURL</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>sqlite_autoindex_PlaylistContainsSong_1</UnderlyingIndexName>
+    </key>
+    <foreign-key id="41" parent="11" name="fk_CONTAINS_Playlist">
+      <ColNames>playlistID</ColNames>
+      <RefTableName>Playlist</RefTableName>
+      <RefColNames>PlaylistID</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <foreign-key id="42" parent="11" name="fk_CONTAINS_SONG">
+      <ColNames>songURL</ColNames>
+      <RefTableName>Song</RefTableName>
+      <RefColNames>songURL</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="43" parent="12" name="songURL">
+      <Position>1</Position>
+      <DataType>VARCHAR(200)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="44" parent="12" name="albumID">
+      <Position>2</Position>
+      <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="45" parent="12" name="bandName">
+      <Position>3</Position>
+      <DataType>VARCHAR(100)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="46" parent="12" name="featured_artist">
+      <Position>4</Position>
+      <DataType>VARCHAR(100)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="47" parent="12" name="songName">
+      <Position>5</Position>
+      <DataType>VARCHAR(100)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="48" parent="12" name="songRelease">
+      <Position>6</Position>
+      <DataType>DATE|0s</DataType>
+    </column>
+    <column id="49" parent="12" name="songLyrics">
+      <Position>7</Position>
+      <DataType>VARCHAR(200)|0s</DataType>
+    </column>
+    <column id="50" parent="12" name="songLength">
+      <Position>8</Position>
+      <DataType>VARCHAR(100)|0s</DataType>
+    </column>
+    <index id="51" parent="12" name="sqlite_autoindex_Song_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>songURL</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <index id="52" parent="12" name="sqlite_autoindex_Song_2">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>songName</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <key id="53" parent="12">
+      <ColNames>songURL</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>sqlite_autoindex_Song_1</UnderlyingIndexName>
+    </key>
+    <key id="54" parent="12">
+      <ColNames>songName</ColNames>
+      <UnderlyingIndexName>sqlite_autoindex_Song_2</UnderlyingIndexName>
+    </key>
+    <foreign-key id="55" parent="12" name="fk_AlbumID_Song">
+      <ColNames>albumID</ColNames>
+      <RefTableName>Album</RefTableName>
+      <RefColNames>albumID</RefColNames>
+      <OnDelete>set-null</OnDelete>
+    </foreign-key>
+    <foreign-key id="56" parent="12" name="fk_band_Song">
+      <ColNames>bandName
+featured_artist</ColNames>
+      <RefTableName>Band</RefTableName>
+      <RefColNames>bandName
+bandName</RefColNames>
+      <OnDelete>set-null</OnDelete>
+    </foreign-key>
+    <column id="57" parent="13" name="songURL">
+      <Position>1</Position>
+      <DataType>VARCHAR(200)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="58" parent="13" name="songGenre">
+      <Position>2</Position>
+      <DataType>VARCHAR(100)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="59" parent="13" name="sqlite_autoindex_SongGenres_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>songURL
+songGenre</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <key id="60" parent="13">
+      <ColNames>songURL
+songGenre</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>sqlite_autoindex_SongGenres_1</UnderlyingIndexName>
+    </key>
+    <foreign-key id="61" parent="13" name="fk_Song_Genres">
+      <ColNames>songURL</ColNames>
+      <RefTableName>Song</RefTableName>
+      <RefColNames>songURL</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="62" parent="14" name="type">
+      <Position>1</Position>
+      <DataType>text|0s</DataType>
+    </column>
+    <column id="63" parent="14" name="name">
+      <Position>2</Position>
+      <DataType>text|0s</DataType>
+    </column>
+    <column id="64" parent="14" name="tbl_name">
+      <Position>3</Position>
+      <DataType>text|0s</DataType>
+    </column>
+    <column id="65" parent="14" name="rootpage">
+      <Position>4</Position>
+      <DataType>int|0s</DataType>
+    </column>
+    <column id="66" parent="14" name="sql">
+      <Position>5</Position>
+      <DataType>text|0s</DataType>
+    </column>
+  </database-model>
+</dataSource>

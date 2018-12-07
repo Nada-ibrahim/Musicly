@@ -14,9 +14,11 @@ class MusiclyDB:
         path = Path("musicly.db")
         if not path.exists():
             self.con = self.create_connection()
+            self.con.execute("PRAGMA foreign_keys = 1")
             self.create_tables()
             self.fill_db()
         self.con = self.create_connection()
+        self.con.execute("PRAGMA foreign_keys = 1")
 
     def create_connection(self):
         self.con = sqlite3.connect("musicly.db")
@@ -40,7 +42,7 @@ class MusiclyDB:
                             CONSTRAINT fk_BandName_Album
                             FOREIGN KEY (bandName)
                             REFERENCES Band(bandName)
-                            ON DELETE CASCADE   
+                            ON DELETE SET NULL   
                             );
                        ''')
 
@@ -55,20 +57,28 @@ class MusiclyDB:
 
         cursor.execute('''CREATE TABLE IF NOT EXISTS Song (
                             songURL            VARCHAR(200) PRIMARY KEY NOT NULL, 
-                            albumID            INTEGER NOT NULL,
-                            bandName           VARCHAR(100) NOT NULL,  
-                            featured_artist    VARCHAR(100) NOT NULL,  
+                            albumID            INTEGER,
+                            bandName           VARCHAR(100),  
+                            featured_artist    VARCHAR(100),  
                             songName           VARCHAR(100) UNIQUE NOT NULL,
                             songRelease        DATE         ,
                             songLyrics         VARCHAR(200) ,
                             songLength         VARCHAR(100) ,
-                              
-                            FOREIGN KEY(bandName, featured_artist)  REFERENCES Band(bandName, featured_artist),
+                            
+                            CONSTRAINT fk_band1_Song
+                            FOREIGN KEY(bandName)  
+                            REFERENCES Band(bandName) 
+                            ON DElETE SET NULL,
+                            
+                            CONSTRAINT fk_band2_Song
+                            FOREIGN KEY(featured_artist)  
+                            REFERENCES Band(bandName) 
+                            ON DElETE SET NULL,
 
                             CONSTRAINT fk_AlbumID_Song
                             FOREIGN KEY (albumID)
                             REFERENCES Album(albumID)
-                            ON DELETE CASCADE
+                            ON DELETE SET NULL
                              );
                         ''')
 
@@ -87,7 +97,12 @@ class MusiclyDB:
                             playlistID INTEGER NOT NULL, 
                             songURL    VARCHAR(200) NOT NULL, 
                             PRIMARY KEY (playlistID, songURL),
-                            CONSTRAINT fk_Song_Playlist
+                            CONSTRAINT fk_CONTAINS_Playlist
+                            FOREIGN KEY (playlistID)
+                            REFERENCES Playlist(playlistID)
+                            ON DELETE CASCADE,
+                            
+                            CONSTRAINT fk_CONTAINS_SONG
                             FOREIGN KEY (songURL)
                             REFERENCES Song(songURL)
                             ON DELETE CASCADE
@@ -98,9 +113,14 @@ class MusiclyDB:
                             bandName   VARCHAR(100) NOT NULL, 
                             artistName VARCHAR(100) NOT NULL,
                             PRIMARY KEY (bandName, artistName),
-                            CONSTRAINT fk_Artist_Band
+                            CONSTRAINT fk_Contains_Artist
                             FOREIGN KEY (artistName)
                             REFERENCES Artist(artistName)
+                            ON DELETE CASCADE,
+                            
+                            CONSTRAINT fk_Contains_Band
+                            FOREIGN KEY (bandName)
+                            REFERENCES Band(bandName)
                             ON DELETE CASCADE
                             );
                        ''')
@@ -116,10 +136,10 @@ class MusiclyDB:
 
         self.add_album("Cairokee", "No2ta beda")
 
-        self.add_song("songGenre", "songURL", 1, "Cairokee", "",  "layla", "release", "lyrics", 3)
+        self.add_song(["songGenre"], "songURL", 1, "Cairokee", "Cairokee",  "layla", "release", "lyrics", 3)
         self.add_song_to_playlist(1, "songURL")
 
-        self.add_song("songGenre2", "songURL2", 1, "Cairokee", "", "ed7ak", "release2", "lyrics2", 4)
+        self.add_song(["songGenre2"], "songURL2", 1, "Cairokee", "Amr Diab", "ed7ak", "release2", "lyrics2", 4)
         self.add_song_to_playlist(1, "songURL2")
 
         '''Michael Jackson'''
@@ -132,7 +152,7 @@ class MusiclyDB:
 
         self.add_album("Jackson", "Thriller")
 
-        self.add_song("Post-disco", "Michael Jackson/Thriller/01. Wanna be startin' somethin'.wav", 2, "Jackson", "", "Wanna be startin' somethin'", "8-5-1983",
+        self.add_song(["Post-disco"], "Michael Jackson/Thriller/01. Wanna be startin' somethin'.wav", 2, "Jackson", None, "Wanna be startin' somethin'", "8-5-1983",
                       "I said you wanna be startin' somethin'"
                       "You got to be startin' somethin' "
                       "I said you wanna be startin' somethin'"
@@ -147,7 +167,7 @@ class MusiclyDB:
                       "And the pain is thunder (yeah, yeah)", 6)
         self.add_song_to_playlist(2, "Michael Jackson/Thriller/01. Wanna be startin' somethin'.wav")
 
-        self.add_song("Post-disco", "Michael Jackson/Thriller/03. Thriller.wav", 2, "Jackson", "", "Thriller", "2-11-1983",
+        self.add_song(["Post-disco"], "Michael Jackson/Thriller/03. Thriller.wav", 2, "Jackson", None, "Thriller", "2-11-1983",
                       "It's close to midnight "
                       "Something evil's lurking from the dark"
                       "Under the moonlight"
@@ -160,7 +180,7 @@ class MusiclyDB:
 
         self.add_song_to_playlist(2, "Michael Jackson/Thriller/03. Thriller.wav")
 
-        self.add_song("Hard rock", "Michael Jackson/Thriller/04. Beat It.wav", 2, "Jackson", "", "Beat It", "14-2-1983",
+        self.add_song(["Hard rock"], "Michael Jackson/Thriller/04. Beat It.wav", 2, "Jackson", None, "Beat It", "14-2-1983",
                       "They told him don't you ever come around here"
                       "Don't want to see your face, you better disappear"
                       "The fire's in their eyes and their words are really clear"
@@ -172,9 +192,9 @@ class MusiclyDB:
         self.add_artist(Artist("Don Henley", "22-5-1947"))
         self.add_artist(Artist("Joe Walsh", "20-11-1947"))
         self.add_artist(Artist("Timothy B. Schmit", "30-10-1947"))
-        self.add_artist_to_band("Don Henley", "Eagles")
-        self.add_artist_to_band("Joe Walsh", "Eagles")
-        self.add_artist_to_band("Timothy B. Schmit", "Eagles")
+        self.add_artist_to_band("Eagles", "Don Henley")
+        self.add_artist_to_band("Eagles", "Joe Walsh")
+        self.add_artist_to_band("Eagles", "Timothy B. Schmit")
 
         self.add_playlist("Their Greatest Hits", "Their Greatest Hits (1971–1975) is the first compilation album by "
                                                  "the Eagles, released in 1976. The album contains a selection of "
@@ -184,7 +204,7 @@ class MusiclyDB:
 
         self.add_album("Eagles", "Their Greatest Hits")
 
-        self.add_song("Country rock", "Eagles/Their Greatest Hits/01. Take It Easy.wav", 3, "Eagles", "",
+        self.add_song(["Country rock"], "Eagles/Their Greatest Hits/01. Take It Easy.wav", 3, "Eagles", None,
                       "Take It Easy", "1-5-1972",
                       "Take It easy, take it easy"
                       "Don't let the sound of your own wheels"
@@ -195,7 +215,7 @@ class MusiclyDB:
                       "And take it easy", 4)
         self.add_song_to_playlist(3, "Eagles/Their Greatest Hits/01. Take It Easy.wav")
 
-        self.add_song("Country rock", "Eagles/Their Greatest Hits/02. Already Gone.wav", 3, "Eagles", "",
+        self.add_song(["Country rock"], "Eagles/Their Greatest Hits/02. Already Gone.wav", 3, "Eagles", None,
                       "Already Gone", "19-4-1974",
                       "Well, I heard some people talkin' just the other day "
                       "And they said you were gonna put me on a shelf "
@@ -210,7 +230,7 @@ class MusiclyDB:
         self.add_song_to_playlist(3, "Eagles/Their Greatest Hits/02. Already Gone.wav")
 
     # Band Requester
-    def add_band(self, band_name, artists_list: List[Artist]):
+    def add_band(self, band_name, artists_list = []):
         cursor = self.con.cursor()
         query = ''' INSERT INTO Band( bandName ) VALUES ( ? ) '''
 
@@ -221,7 +241,7 @@ class MusiclyDB:
         self.con.commit()
 
         for artist in artists_list:
-            self.add_artist_to_band(band_name, artist.name)
+            self.add_artist_to_band(band_name, artist)
 
     def add_artist_to_band(self, band_name, artist_name):
         cursor = self.con.cursor()
@@ -231,6 +251,7 @@ class MusiclyDB:
             cursor.execute(query, (band_name, artist_name))
         except sqlite3.IntegrityError as e:
             print("was already stored in table ")
+            print(e)
 
         self.con.commit()
 
@@ -273,6 +294,7 @@ class MusiclyDB:
             cursor.execute(query, (playlist_id, song_url))
         except sqlite3.IntegrityError as e:
             print("was already stored in table ")
+            print(e)
 
         self.con.commit()
 
@@ -309,7 +331,7 @@ class MusiclyDB:
         self.con.commit()
 
         for i in range(len(list1)):
-            if list1[i][2] == 1 and not list2.__contains__(list1[i][1]):
+            if list1[i][2] == 1 and not list2.__contains__((list1[i][0],)):
                 list1[i] = list1[i][:2] + (0,)
 
         return list1
@@ -360,6 +382,7 @@ class MusiclyDB:
                            (song_url, album_id, band_name, featured_artist, song_name, song_release, song_lyrics, song_length))
         except sqlite3.IntegrityError as e:
             print("was already stored in table ")
+            print(e)
 
         query = ''' INSERT INTO SongGenres( songURL, songGenre ) 
                     VALUES ( ?, ? ) '''
@@ -456,7 +479,7 @@ class MusiclyDB:
 
     def get_song_by_url(self, URL):
         cursor = self.con.cursor()
-        query = ''' SELECT songURL, albumTitle, bandName, featured_artist, songName, songRelease, songLyrics, songLength
+        query = ''' SELECT songURL, albumTitle, song.bandName, featured_artist, songName, songRelease, songLyrics, songLength
                     FROM Song 
                     INNER JOIN Album ON Album.albumID = Song.albumID
                     WHERE songURL = ? '''
@@ -484,7 +507,7 @@ class MusiclyDB:
 
         songs = []
         for song_URL in songs_URLs:
-            songs += self.get_song_by_url(song_URL[0])
+            songs.append(self.get_song_by_url(song_URL[0]))
 
         return songs
 
@@ -510,16 +533,64 @@ class MusiclyDB:
         album_title = cursor.fetchall()
         return album_title[0][0]
 
-    def get_all_albums(self):
+    def get_all_playlists(self):
         cursor = self.con.cursor()
-        query = '''SELECT albumID, count(*) FROM Song GROUP BY albumID'''
+        query = '''SELECT Playlist.playlistID, playlistName, count(*)
+                    FROM Playlist
+                    LEFT JOIN PlaylistContainsSong ON PlaylistContainsSong.playlistID = Playlist.playlistID
+                    GROUP BY Playlist.playlistID'''
         cursor.execute(query)
         self.con.commit()
-        album_number_of_songs = cursor.fetchall()
+        list1 = cursor.fetchall()
 
-        album_title_id_songs = [[self.get_album_title_by_id(item[0])] + list(item) for item in
-                                album_number_of_songs]
-        return album_title_id_songs  # list of lists, not list of tuples
+        query = '''SELECT playlistID
+                   FROM PlaylistContainsSong
+                   GROUP BY playlistID
+                            '''
+        cursor.execute(query)
+        list2 = cursor.fetchall()
+        self.con.commit()
+
+        for i in range(len(list1)):
+            if list1[i][2] == 1 and not list2.__contains__((list1[i][0],)):
+                list1[i] = list1[i][:2] + (0,)
+
+        return list1
+
+    def get_all_albums(self):
+        cursor = self.con.cursor()
+        query = '''SELECT album.albumID, albumTitle, count(*)
+                    FROM Album
+                    LEFT JOIN Song ON Album.albumID = Song.albumID
+                    GROUP BY Song.albumID'''
+        cursor.execute(query)
+        self.con.commit()
+        list1 = cursor.fetchall()
+
+        query = '''SELECT albumID
+                  FROM Song
+                  GROUP BY albumID'''
+        cursor.execute(query)
+        list2 = cursor.fetchall()
+        self.con.commit()
+
+        for i in range(len(list1)):
+            if list1[i][2] == 1 and not list2.__contains__((list1[i][0],)):
+                list1[i] = list1[i][:2] + (0,)
+
+        return list1
+        # cursor = self.con.cursor()
+        # query = '''SELECT albumID, count(*)
+        #             FROM Song
+        #             where albumID
+        #             GROUP BY albumID'''
+        # cursor.execute(query)
+        # self.con.commit()
+        # album_number_of_songs = cursor.fetchall()
+        #
+        # album_title_id_songs = [[self.get_album_title_by_id(item[0])] + list(item) for item in
+        #                         album_number_of_songs]
+        # return album_title_id_songs  # list of lists, not list of tuples
 
     def get_album_information(self, album_id):
         cursor = self.con.cursor()
@@ -559,26 +630,62 @@ class MusiclyDB:
         except sqlite3.IntegrityError as e:
             print("was already stored in table ")
 
-        self.add_band(artist.name, [artist])
+        self.add_band(artist.name, [artist.name])
 
     def get_all_artists(self):
         cursor = self.con.cursor()
-        query = '''SELECT Artist.artistName, dateBirth, bandName
-                   FROM Artist
-                   INNER JOIN BandContainsArtists ON BandContainsArtists.artistName = Artist.artistName'''
+        query = '''SELECT artistName, dateBirth
+                   FROM Artist'''
         cursor.execute(query)
         artists_list = cursor.fetchall()
         self.con.commit()
 
         new_artists_list = []
-        bands_list = []
-        for item in artists_list:
-            artist = Artist(item[0], item[1])
-            new_artists_list.append(artist)
-            temp = []; temp.append(item[2])
-            bands_list.append(temp)
 
-        return new_artists_list, bands_list
+        for item in artists_list:
+            artist = Artist(*item)
+            new_artists_list.append(artist)
+
+        return new_artists_list
+
+    def get_all_bands(self):
+        cursor = self.con.cursor()
+        query = '''SELECT Band.bandName, count(*)
+                   FROM Band
+                   INNER JOIN BandContainsArtists ON Band.bandName = BandContainsArtists.bandName
+                   group by Band.bandName
+                   HAVING count(*) > 1'''
+        cursor.execute(query)
+        bands_list = cursor.fetchall()
+        self.con.commit()
+
+        # remove those lines if query works properly
+
+        # new_bands_list = []
+        # for item in bands_list:
+        #     if item[1] > 1:
+        #         new_bands_list.append(item[0])
+
+        return bands_list
+
+    # def get_all_artists(self):
+    #     cursor = self.con.cursor()
+    #     query = '''SELECT Artist.artistName, dateBirth, bandName
+    #                FROM Artist
+    #                INNER JOIN BandContainsArtists ON BandContainsArtists.artistName = Artist.artistName'''
+    #     cursor.execute(query)
+    #     artists_list = cursor.fetchall()
+    #     self.con.commit()
+    #
+    #     new_artists_list = []
+    #     bands_list = []
+    #     for item in artists_list:
+    #         artist = Artist(item[0], item[1])
+    #         new_artists_list.append(artist)
+    #         temp = []; temp.append(item[2])
+    #         bands_list.append(temp)
+    #
+    #     return new_artists_list, bands_list
 
     def remove_artist(self, artist_name):
         self.remove_band(artist_name)

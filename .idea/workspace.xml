@@ -1,18 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="536c9bd1-aa24-4b77-b211-76db05491c40" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sqliteDB/musicly_db.py" beforeDir="false" afterPath="$PROJECT_DIR$/sqliteDB/musicly_db.py" afterDir="false" />
-    </list>
+    <list default="true" id="536c9bd1-aa24-4b77-b211-76db05491c40" name="Default" comment="Final version" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/Musicly$main.coverage" NAME="main Coverage Results" MODIFIED="1544054472228" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Musicly$main.coverage" NAME="main Coverage Results" MODIFIED="1544210768885" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -71,74 +69,95 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file leaf-file-name="musicly_db.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sqliteDB/musicly_db.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-5851">
-              <caret line="220" column="25" lean-forward="true" selection-start-line="220" selection-start-column="25" selection-end-line="220" selection-end-column="25" />
+            <state relative-caret-position="449">
+              <caret line="510" lean-forward="true" selection-start-line="510" selection-end-line="510" />
               <folding>
-                <element signature="e#0#14#0" expanded="true" />
-                <marker date="1544117929261" expanded="true" signature="11083:11772" ph="..." />
-                <marker date="1544117929261" expanded="true" signature="18100:18546" ph="..." />
-                <marker date="1544117929261" expanded="true" signature="19757:19762" ph="..." />
+                <element signature="e#22558#22668#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/main.py">
+      <file leaf-file-name="playlist_page.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ui/playlist_page.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="4" column="21" lean-forward="true" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Song.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="69" lean-forward="true" selection-start-line="11" selection-start-column="23" selection-end-line="12" selection-end-column="69" />
+            <state relative-caret-position="118">
+              <caret line="77" column="39" selection-start-line="77" selection-start-column="39" selection-end-line="77" selection-end-column="39" />
               <folding>
-                <element signature="e#0#25#0" expanded="true" />
+                <element signature="e#0#33#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file leaf-file-name="play.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/play_song/play.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-229">
+              <caret line="13" column="17" lean-forward="true" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="17" />
+              <folding>
+                <element signature="e#0#12#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="songs_page.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ui/songs_page.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="167">
+              <caret line="48" column="46" selection-start-line="48" selection-start-column="46" selection-end-line="48" selection-end-column="46" />
+              <folding>
+                <element signature="e#0#33#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Album.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Album.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="12" column="23" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
+            <state relative-caret-position="308">
+              <caret line="14" column="12" lean-forward="true" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
+              <folding>
+                <element signature="e#0#23#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Artist.py">
+      <file leaf-file-name="play_pygame.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/play_song/play_pygame.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="24" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="24" />
+            <state relative-caret-position="198">
+              <caret line="9" column="11" lean-forward="true" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
+              <folding>
+                <element signature="e#0#13#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Band.py">
+      <file leaf-file-name="album_page.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ui/album_page.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="4" selection-start-line="4" selection-end-line="4" />
+            <state relative-caret-position="110">
+              <caret line="46" column="54" lean-forward="true" selection-start-line="42" selection-start-column="8" selection-end-line="46" selection-end-column="54" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Playlist.py">
+      <file leaf-file-name="library_page.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ui/library_page.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="12" column="16" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="16" />
+            <state relative-caret-position="312">
+              <caret line="71" column="26" lean-forward="true" selection-start-line="71" selection-start-column="26" selection-end-line="71" selection-end-column="26" />
+              <folding>
+                <element signature="e#0#24#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -159,12 +178,14 @@
       <find>get</find>
       <find>add_pla</find>
       <find>GET_ALL</find>
-      <find>get_song</find>
       <find>artist</find>
       <find>song</find>
       <find>get_song_by_u</find>
       <find>get_genre</find>
       <find>get_song_by</find>
+      <find>get_song</find>
+      <find>des</find>
+      <find>get_all</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -191,18 +212,21 @@
         <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/ui/print_utils.py" />
         <option value="$PROJECT_DIR$/ui/Page.py" />
-        <option value="$PROJECT_DIR$/ui/page.py" />
-        <option value="$PROJECT_DIR$/ui/playlist_page.py" />
         <option value="$PROJECT_DIR$/Artist.py" />
+        <option value="$PROJECT_DIR$/Album.py" />
+        <option value="$PROJECT_DIR$/Song.py" />
         <option value="$PROJECT_DIR$/ui/artist_page.py" />
         <option value="$PROJECT_DIR$/ui/band_page.py" />
-        <option value="$PROJECT_DIR$/Album.py" />
-        <option value="$PROJECT_DIR$/ui/songs_page.py" />
-        <option value="$PROJECT_DIR$/ui/welcome_page.py" />
         <option value="$PROJECT_DIR$/ui/album_page.py" />
-        <option value="$PROJECT_DIR$/ui/library_page.py" />
-        <option value="$PROJECT_DIR$/Song.py" />
+        <option value="$PROJECT_DIR$/ui/welcome_page.py" />
         <option value="$PROJECT_DIR$/sqliteDB/musicly_db.py" />
+        <option value="$PROJECT_DIR$/ui/page.py" />
+        <option value="$PROJECT_DIR$/ui/library_page.py" />
+        <option value="$PROJECT_DIR$/classes_Pyreverse.dot" />
+        <option value="$PROJECT_DIR$/play_song/play.py" />
+        <option value="$PROJECT_DIR$/ui/songs_page.py" />
+        <option value="$PROJECT_DIR$/ui/playlist_page.py" />
+        <option value="$PROJECT_DIR$/play_song/play_pygame.py" />
       </list>
     </option>
   </component>
@@ -212,9 +236,12 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths />
+  </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="165" />
-    <option name="y" value="-14" />
+    <option name="x" value="15" />
+    <option name="y" value="30" />
     <option name="width" value="1890" />
     <option name="height" value="930" />
   </component>
@@ -229,13 +256,23 @@
         <subPane>
           <expand>
             <path>
-              <item name="ConceptsAssgnment_2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ConceptsAssgnment_2" type="462c0819:PsiDirectoryNode" />
+              <item name="Musicly" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Musicly" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="ConceptsAssgnment_2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ConceptsAssgnment_2" type="462c0819:PsiDirectoryNode" />
+              <item name="Musicly" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Musicly" type="462c0819:PsiDirectoryNode" />
+              <item name="play_song" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Musicly" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Musicly" type="462c0819:PsiDirectoryNode" />
               <item name="sqliteDB" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Musicly" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Musicly" type="462c0819:PsiDirectoryNode" />
+              <item name="ui" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -248,6 +285,124 @@
     <property name="database.console.LAST_STATE" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/musicly.db" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Python\Musicly" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Python\Musicly" />
+    </key>
+  </component>
+  <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
+    <UpdatedFiles>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Updated from server" />
+        <option name="myStatusName" value="Changed on server" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="CHANGED_ON_SERVER" />
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Updated" />
+          <option name="myStatusName" value="Changed" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="UPDATED" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Created" />
+          <option name="myStatusName" value="Created" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="CREATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/play_song/play_pygame.py</PATH>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Deleted" />
+          <option name="myStatusName" value="Deleted" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="true" />
+          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Restored" />
+          <option name="myStatusName" value="Will be restored" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="RESTORED" />
+        </FILE-GROUP>
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Modified" />
+        <option name="myStatusName" value="Modified" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MODIFIED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Skipped" />
+        <option name="myStatusName" value="Skipped" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SKIPPED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with conflicts" />
+        <option name="myStatusName" value="Will be merged with conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_CONFLICTS" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with tree conflicts" />
+        <option name="myStatusName" value="Merged with tree conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with property conflicts" />
+        <option name="myStatusName" value="Will be merged with property conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged" />
+        <option name="myStatusName" value="Will be merged" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Not in repository" />
+        <option name="myStatusName" value="Not in repository" />
+        <option name="mySupportsDeletion" value="true" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="UNKNOWN" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally added" />
+        <option name="myStatusName" value="Locally added" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_ADDED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally removed" />
+        <option name="myStatusName" value="Locally removed" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_REMOVED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Switched" />
+        <option name="myStatusName" value="Switched" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SWITCHED" />
+      </FILE-GROUP>
+    </UpdatedFiles>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -280,9 +435,6 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
     </configuration>
     <configuration name="song_requester" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Musicly" />
@@ -302,9 +454,6 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
     </configuration>
     <list>
       <item itemvalue="Python.main" />
@@ -342,7 +491,28 @@
       <option name="project" value="LOCAL" />
       <updated>1544054604955</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Project is complete except for play">
+      <created>1544209799610</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1544209799610</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Final version">
+      <created>1544210903541</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1544210903541</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Final version">
+      <created>1544210978986</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1544210978986</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TodoView">
@@ -355,32 +525,46 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="840" extended-state="6" />
-    <editor active="true" />
+    <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.28322148" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32993197" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5003903" side_tool="true" weight="0.39795917" />
+      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32993197" />
+      <window_info anchor="bottom" id="Python Console" order="7" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.4642857" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49960968" weight="0.27891156" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17564403" />
+      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
+      <window_info anchor="right" id="Database" order="3" visible="true" weight="0.20608899" />
+      <window_info active="true" anchor="bottom" id="Find" order="1" visible="true" weight="0.3282313" />
+      <window_info anchor="right" id="SciView" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32768363" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.38841808" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32909605" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.5" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Pylint" order="8" weight="0.32993197" />
-      <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Database Changes" order="10" />
-      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="12" />
-      <window_info anchor="bottom" id="Python Console" order="13" />
-      <window_info anchor="bottom" id="Database Console" order="14" weight="0.32993197" />
+      <window_info anchor="right" id="Database" order="4" weight="0.3295302" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.28322148" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32909605" />
+      <window_info anchor="bottom" id="Version Control" order="9" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.38841808" />
+      <window_info anchor="bottom" id="Pylint" order="8" weight="0.32993197" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Python Console" order="13" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
+      <window_info anchor="bottom" id="Database Changes" order="10" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="right" id="SciView" order="3" weight="0.3295302" />
-      <window_info anchor="right" id="Database" order="4" weight="0.3295302" />
+      <window_info anchor="bottom" id="Database Console" order="14" weight="0.32993197" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32768363" />
+      <window_info anchor="bottom" id="Terminal" order="12" />
+      <window_info id="Favorites" order="2" side_tool="true" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -392,26 +576,94 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="..." />
     <MESSAGE value="Added ui of playists, artists&#10;Minor errors exist" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added ui of playists, artists&#10;Minor errors exist" />
+    <MESSAGE value="Project is complete except for play" />
+    <MESSAGE value="Final version" />
+    <option name="LAST_COMMIT_MESSAGE" value="Final version" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/ui/band_page.py</url>
-          <line>11</line>
-          <option name="timeStamp" value="6" />
+          <url>file://$PROJECT_DIR$/sqliteDB/musicly_db.py</url>
+          <line>328</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/sqliteDB/musicly_db.py</url>
+          <line>134</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/sqliteDB/musicly_db.py</url>
+          <line>247</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/ui/album_page.py</url>
+          <line>45</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/ui/playlist_page.py</url>
+          <line>77</line>
+          <option name="timeStamp" value="10" />
         </line-breakpoint>
       </breakpoints>
+      <breakpoints-dialog>
+        <breakpoints-dialog />
+      </breakpoints-dialog>
+      <option name="time" value="11" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="PythonConfigurationType">
-        <watch expression="len(ls)" language="Python" />
+        <watch expression="*song.genres" language="Python" />
+        <watch expression="list1[i][0]" language="Python" />
+        <watch expression="[str(j) for j in ls_objects[i].__dict__.values()]" language="Python" />
       </configuration>
     </watches-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="watch">
+      <expression>
+        <expression-string>[str(j) for j in ls_objects[i].__dict__.values()]</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>[str(i) for i in ls_objects[i].__dict__.values()]</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>ls_objects[i].__dict__.values()</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>*ls_objects[i].__dict__.values()</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>list1[i][0]</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>*song.genres</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>*genres</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>&quot; &quot;.join(song.genres)</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>len(ls)</expression-string>
         <language-id>Python</language-id>
@@ -420,102 +672,353 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/packages_Pyreverse.dot" />
-    <entry file="file://$PROJECT_DIR$/packages_Pyreverse.png" />
-    <entry file="file://$PROJECT_DIR$/classes_Pyreverse.png" />
-    <entry file="file://$PROJECT_DIR$/packages.png" />
-    <entry file="file://$PROJECT_DIR$/classes.png" />
-    <entry file="file://$PROJECT_DIR$/packages.dot" />
-    <entry file="file://$PROJECT_DIR$/PlaylistsCLI.py" />
-    <entry file="file://$PROJECT_DIR$/WelcomeCLI.py" />
-    <entry file="file://$PROJECT_DIR$/database_requester/__init__.py" />
-    <entry file="file://$PROJECT_DIR$/database_requester/album_requester.py" />
-    <entry file="file://$PROJECT_DIR$/database_requester/artist_requester.py" />
-    <entry file="file://$PROJECT_DIR$/database_requester/playlist_requester.py" />
-    <entry file="file://$PROJECT_DIR$/database_requester/song_requester.py" />
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36/Lib/codecs.py" />
-    <entry file="file://$PROJECT_DIR$/classes.dot">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="11" column="33" lean-forward="true" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/238308dc-c504-444e-be57-2f0ed3cc3ce3/console.sql">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="das://238308dc-c504-444e-be57-2f0ed3cc3ce3/schema/main/table/playlist">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/erd-diagram .png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/eed8d62a-377b-4a71-a6eb-15c90c8d8659/console.sql" />
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/d1cb146a-adbc-4f68-a9a4-ed8a9b3085b4/console.sql" />
-    <entry file="das://d1cb146a-adbc-4f68-a9a4-ed8a9b3085b4/schema/main/table/artist" />
-    <entry file="das://d1cb146a-adbc-4f68-a9a4-ed8a9b3085b4/schema/main/table/bandcontainsartists" />
-    <entry file="das://d1cb146a-adbc-4f68-a9a4-ed8a9b3085b4/schema/main/table/band" />
-    <entry file="das://3c58cb32-edcc-43c2-8653-bbb9278b4e7e/schema/main/table/band" />
-    <entry file="das://3c58cb32-edcc-43c2-8653-bbb9278b4e7e/schema/main/table/song" />
-    <entry file="file://$PROJECT_DIR$/ui/page.py" />
-    <entry file="das://3c58cb32-edcc-43c2-8653-bbb9278b4e7e/schema/main/table/bandcontainsartists" />
-    <entry file="das://3c58cb32-edcc-43c2-8653-bbb9278b4e7e/schema/main/table/artist" />
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/3c58cb32-edcc-43c2-8653-bbb9278b4e7e/console.sql" />
-    <entry file="file://$PROJECT_DIR$/ui/band_page.py" />
-    <entry file="file://$PROJECT_DIR$/ui/playlist_page.py" />
-    <entry file="file://$PROJECT_DIR$/ui/artist_page.py" />
-    <entry file="file://$PROJECT_DIR$/ui/welcome_page.py" />
-    <entry file="file://$PROJECT_DIR$/ui/songs_page.py" />
-    <entry file="file://$PROJECT_DIR$/ui/album_page.py" />
-    <entry file="file://$PROJECT_DIR$/ui/library_page.py" />
-    <entry file="file://$PROJECT_DIR$/Album.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="12" column="23" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
+    <entry file="das://238308dc-c504-444e-be57-2f0ed3cc3ce3/schema/main/table/playlistcontainssong">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Artist.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="24" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="24" />
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/71eef401-e98b-45d0-a1be-c9ea57a557cf/console.sql">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="das://71eef401-e98b-45d0-a1be-c9ea57a557cf/schema/main/table/band">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://71eef401-e98b-45d0-a1be-c9ea57a557cf/schema/main/table/song">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/ce3e0581-6cfd-48f3-8c76-ca53566b5f61/console.sql">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="das://ce3e0581-6cfd-48f3-8c76-ca53566b5f61/schema/main/table/album">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://ce3e0581-6cfd-48f3-8c76-ca53566b5f61/schema/main/table/artist">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://ce3e0581-6cfd-48f3-8c76-ca53566b5f61/schema/main/table/band">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://ce3e0581-6cfd-48f3-8c76-ca53566b5f61/schema/main/table/playlist">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://ce3e0581-6cfd-48f3-8c76-ca53566b5f61/schema/main/table/sqlite_master">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://ce3e0581-6cfd-48f3-8c76-ca53566b5f61/schema/main/table/songgenres">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://ce3e0581-6cfd-48f3-8c76-ca53566b5f61/schema/main/table/song">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://ce3e0581-6cfd-48f3-8c76-ca53566b5f61/schema/main/table/bandcontainsartists">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://ce3e0581-6cfd-48f3-8c76-ca53566b5f61/schema/main/table/playlistcontainssong">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Band.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Playlist.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="12" column="16" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Song.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="69" lean-forward="true" selection-start-line="11" selection-start-column="23" selection-end-line="12" selection-end-column="69" />
+        <state>
           <folding>
-            <element signature="e#0#25#0" expanded="true" />
+            <element signature="e#0#23#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://96de6c80-711e-4a93-a7d8-a4dfc3301f96/schema/main/table/song">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/96de6c80-711e-4a93-a7d8-a4dfc3301f96/console.sql">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="das://a2bcc56e-7537-4966-889c-26b8dffc38f8/schema/main/table/song">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/a2bcc56e-7537-4966-889c-26b8dffc38f8/console.sql">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/e4f28cc4-827c-4641-8b0c-1322cf721b91/console.sql">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="das://e4f28cc4-827c-4641-8b0c-1322cf721b91/schema/main/table/album">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://e4f28cc4-827c-4641-8b0c-1322cf721b91/schema/main/table/band">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/ead05ae8-6a8a-4c62-8548-29fc6e11ffd7/console.sql">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="das://ead05ae8-6a8a-4c62-8548-29fc6e11ffd7/schema/main/table/playlist">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://ead05ae8-6a8a-4c62-8548-29fc6e11ffd7/schema/main/table/playlistcontainssong">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="4" column="21" lean-forward="true" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
+        <state relative-caret-position="44">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ui/artist_page.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="21" column="33" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://ead05ae8-6a8a-4c62-8548-29fc6e11ffd7/schema/main/table/band">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://ead05ae8-6a8a-4c62-8548-29fc6e11ffd7/schema/main/table/bandcontainsartists">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://ead05ae8-6a8a-4c62-8548-29fc6e11ffd7/schema/main/table/artist">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/20d24ee2-5464-4d2d-86fa-70c6296faed4/console.sql">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ui/band_page.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="47" column="26" lean-forward="true" selection-start-line="47" selection-start-column="26" selection-end-line="47" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://20d24ee2-5464-4d2d-86fa-70c6296faed4/schema/main/table/bandcontainsartists">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://20d24ee2-5464-4d2d-86fa-70c6296faed4/schema/main/table/band">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://20d24ee2-5464-4d2d-86fa-70c6296faed4/schema/main/table/album">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ui/welcome_page.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="28" column="40" selection-start-line="28" selection-start-column="40" selection-end-line="28" selection-end-column="40" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://20d24ee2-5464-4d2d-86fa-70c6296faed4/schema/main/table/songgenres">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ui/page.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="32" selection-start-line="32" selection-end-line="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ui/album_page.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="46" column="54" lean-forward="true" selection-start-line="42" selection-start-column="8" selection-end-line="46" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ui/library_page.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="71" column="26" lean-forward="true" selection-start-line="71" selection-start-column="26" selection-end-line="71" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#24#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36/Lib/threading.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="866" column="37" lean-forward="true" selection-start-line="866" selection-start-column="37" selection-end-line="866" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes_Pyreverse.dot">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="15" column="20" lean-forward="true" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ui/songs_page.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="167">
+          <caret line="48" column="46" selection-start-line="48" selection-start-column="46" selection-end-line="48" selection-end-column="46" />
+          <folding>
+            <element signature="e#0#33#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://20d24ee2-5464-4d2d-86fa-70c6296faed4/schema/main/table/song">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Album.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="14" column="12" lean-forward="true" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/sqliteDB/musicly_db.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-5851">
-          <caret line="220" column="25" lean-forward="true" selection-start-line="220" selection-start-column="25" selection-end-line="220" selection-end-column="25" />
+        <state relative-caret-position="449">
+          <caret line="510" lean-forward="true" selection-start-line="510" selection-end-line="510" />
           <folding>
-            <element signature="e#0#14#0" expanded="true" />
-            <marker date="1544117929261" expanded="true" signature="11083:11772" ph="..." />
-            <marker date="1544117929261" expanded="true" signature="18100:18546" ph="..." />
-            <marker date="1544117929261" expanded="true" signature="19757:19762" ph="..." />
+            <element signature="e#22558#22668#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/play_song/play.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-229">
+          <caret line="13" column="17" lean-forward="true" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ui/playlist_page.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="118">
+          <caret line="77" column="39" selection-start-line="77" selection-start-column="39" selection-end-line="77" selection-end-column="39" />
+          <folding>
+            <element signature="e#0#33#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/play_song/play_pygame.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="9" column="11" lean-forward="true" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
           </folding>
         </state>
       </provider>

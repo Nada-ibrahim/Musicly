@@ -1,5 +1,6 @@
 from ui.album_page import AlbumPage
 from ui.artist_page import ArtistPage
+from ui.library_page import LibraryPage
 from ui.playlist_page import PlaylistPage
 from ui.page import Page
 
@@ -25,6 +26,7 @@ class WelcomePage(Page):
                     AlbumPage(self._db)
                     break
                 elif n == 4:
+                    LibraryPage(self._db)
                     break
                 else:
                     print("INVALID NUMBER")

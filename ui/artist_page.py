@@ -12,7 +12,7 @@ class ArtistPage(Page):
         while True:
             self.print_title("Artists")
 
-            artists_list, bands_list = self._db.get_all_Artists()
+            artists_list = self._db.get_all_artists()
             headers = ["Name"]
             self.print_attrs(headers, artists_list)
 

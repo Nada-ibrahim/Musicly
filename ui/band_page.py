@@ -9,7 +9,7 @@ class BandPage(Page):
         while True:
             self.print_title("Bands")
 
-            artists_list, bands_list = self._db.get_all_Artists()
+            bands_list = self._db.get_all_bands()
             headers = ["Name"]
             self.print_list(headers, bands_list)
 
@@ -21,7 +21,7 @@ class BandPage(Page):
             while True:
                 n = int(input("\nEnter Your Choice: "))
                 if n == 1:
-                    self.add_band(artists_list)
+                    self.add_band()
                     break
                 elif n == 2:
                     self.remove_band()
@@ -34,17 +34,18 @@ class BandPage(Page):
                 else:
                     print("INVALID NUMBER")
 
-    def add_band(self, artist_list):
+    def add_band(self,):
         name = input("Enter name: ")
         headers = ["Artist Name"]
+        artist_list = self._db.get_all_artists()
         self.print_attrs(headers, artist_list)
         print("Enter names of artists in the band: ")
-        artists = input().split(' ')
-        # TODO add artists to add_band function
+        artists = input().split(',')
         self._db.add_band(name, artists)
 
     def remove_band(self):
         name = input("Enter Name: ")
+        self._db.remove_band(name)
         # TODO: add remove band and if band contains one artist remove artist)
 
     def view_all_songs_by_band(self):
